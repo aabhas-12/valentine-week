@@ -1,5 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Countdown
+  const modal = document.getElementById("unlock-modal");
+  const input = document.getElementById("unlock-input");
+  const message = document.getElementById("unlock-message");
+  const unlockBtn = document.getElementById("unlock-btn");
+  const title = document.getElementById("unlock-title");
+  const question = document.getElementById("unlock-question");
+
+  document.querySelectorAll(".day-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const unlockDate = new Date(card.dataset.date);
+      const now = new Date();
+
+      if (now >= unlockDate) {
+        // Ask for secret code
+        modal.style.display = "flex";
+        title.innerText = card.innerText;
+        question.innerText = "When did I give you the first flower? 🌹";
+
+        unlockBtn.onclick = function () {
+          const answer = input.value.toLowerCase().replace(/\s/g, "");
+
+          if (answer === card.dataset.code) {
+            window.location.href = card.dataset.link;
+          } else {
+            message.innerText = "Hmm… think again ❤️";
+          }
+        };
+      }
+    });
+  });
+
   function updateCountdown() {
     const targetDate = new Date("2026-02-14T00:00:00");
     const now = new Date();

@@ -213,3 +213,38 @@ body::before {
     background-position: 0% 50%;
   }
 }
+
+.unlock-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.unlock-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 300px;
+}
+
+.unlock-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.unlock-content button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: none;
+  background: #ff4d88;
+  color: white;
+  cursor: pointer;
+}
