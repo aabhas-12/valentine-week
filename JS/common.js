@@ -94,18 +94,4 @@ document.addEventListener("DOMContentLoaded", function () {
       toggle.innerText = "🎵";
     }
   });
-
-  // Unlock logic
-  document.querySelectorAll(".day-card").forEach((card) => {
-    const unlockDate = new Date(card.dataset.date);
-    const now = new Date();
-
-    if (now >= unlockDate) {
-      card.addEventListener("click", () => {
-        window.location.href = card.dataset.link;
-      });
-    } else {
-      card.classList.add("locked");
-    }
-  });
 });
