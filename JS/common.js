@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("seconds").innerText = 0;
       return;
     }
+    if (diff <= 0) {
+      document.querySelector(".countdown").innerHTML =
+        "<h2 style='color:#c4004f;'>I'm coming to see you ❤️</h2>";
+      return;
+    }
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);

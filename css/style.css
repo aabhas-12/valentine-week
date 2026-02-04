@@ -1,7 +1,9 @@
 body {
   margin: 0;
   font-family: 'Georgia', serif;
-  background: linear-gradient(to bottom right, #ffe6ec, #fff5f7);
+  background: linear-gradient(-45deg, #ffe6ec, #ffd6e8, #fff0f5, #ffeaf4);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +71,20 @@ h1::after {
   text-align: center;
   padding: 20px;
   max-width: 900px;
+  animation: fadeUp 1.2s ease;
 }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 h1 {
   font-size: 2.8rem;
@@ -104,7 +119,15 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
   color: #c4004f;
+  animation: pulse 2s infinite;
 }
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
 
 .time-box p {
   margin: 5px 0 0;
@@ -177,4 +200,16 @@ body::before {
 @keyframes float {
   0% { transform: translateY(0); }
   100% { transform: translateY(110vh); }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
