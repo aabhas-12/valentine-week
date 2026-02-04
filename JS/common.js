@@ -27,6 +27,28 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
+  // Floating petals
+  for (let i = 0; i < 15; i++) {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.innerText = "🌸";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = 5 + Math.random() * 5 + "s";
+    petal.style.fontSize = 12 + Math.random() * 20 + "px";
+    document.body.appendChild(petal);
+  }
+
+  const music = document.getElementById("bg-music");
+  const toggle = document.getElementById("music-toggle");
+
+  toggle.addEventListener("click", function () {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  });
+
   // Unlock logic
   document.querySelectorAll(".day-card").forEach((card) => {
     const unlockDate = new Date(card.dataset.date);
