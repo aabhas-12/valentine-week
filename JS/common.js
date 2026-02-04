@@ -41,11 +41,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const music = document.getElementById("bg-music");
   const toggle = document.getElementById("music-toggle");
 
-  toggle.addEventListener("click", function () {
+  toggle.addEventListener("click", async function () {
     if (music.paused) {
-      music.play();
+      try {
+        await music.play();
+        toggle.innerText = "🔊";
+      } catch (error) {
+        console.log("Playback failed:", error);
+      }
     } else {
       music.pause();
+      toggle.innerText = "🎵";
     }
   });
 
