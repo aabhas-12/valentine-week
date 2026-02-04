@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(to bottom right, #ffe6ec, #fff5f7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 900px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #b3003b;
+}
+
+.tagline {
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.countdown {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  color: #800026;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.day-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.day-card:hover {
+  transform: translateY(-5px);
+}
+
+.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
