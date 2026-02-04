@@ -41,16 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const diff = targetDate - now;
 
     if (diff <= 0) {
-      document.getElementById("days").innerText = 0;
-      document.getElementById("hours").innerText = 0;
-      document.getElementById("minutes").innerText = 0;
-      document.getElementById("seconds").innerText = 0;
-      return;
-    }
-    if (diff <= 0) {
-      document.querySelector(".countdown").innerHTML =
-        "<h2 style='color:#c4004f;'>I'm coming to see you ❤️</h2>";
-      return;
+  document.querySelector(".countdown").innerHTML =
+    "<h2 style='color:#c4004f;'>I'm coming to see you ❤️</h2>";
+  return;
+}
+
     }
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
