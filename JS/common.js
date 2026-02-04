@@ -16,11 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const now = new Date();
 
       if (now < unlockDate) {
-        card.classList.add("locked");
         return;
       }
 
-      // Show modal
       modal.style.display = "flex";
       title.innerText = card.innerText;
       question.innerText = "When did I give you the first flower? 🌹";
