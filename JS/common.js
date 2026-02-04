@@ -8,12 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const question = document.getElementById("unlock-question");
 
   document.querySelectorAll(".day-card").forEach((card) => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", function (e) {
       const unlockDate = new Date(card.dataset.date);
       const now = new Date();
 
       if (now >= unlockDate) {
-        // Ask for secret code
+        // Stop immediate redirect
+        e.preventDefault();
+
         modal.style.display = "flex";
         title.innerText = card.innerText;
         question.innerText = "When did I give you the first flower? 🌹";
@@ -27,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
             message.innerText = "Hmm… think again ❤️";
           }
         };
+      } else {
+        card.classList.add("locked");
       }
     });
   });
