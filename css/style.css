@@ -6,7 +6,14 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  animation: fadeIn 1.2s ease-in-out;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 
 .container {
   text-align: center;
@@ -27,22 +34,21 @@ h1 {
 }
 
 .countdown {
-  margin: 25px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #b3003b;
+  margin: 30px 0;
+  text-align: center;
 }
 
 .countdown-number {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: bold;
+  color: #c4004f;
   animation: pop 1s ease;
 }
 
 .countdown-text {
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 2px;
+  color: #555;
 }
 
 @keyframes pop {
@@ -59,28 +65,21 @@ h1 {
 
 .day-card {
   background: white;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 22px;
+  border-radius: 25px;
   cursor: pointer;
   transition: 0.3s ease;
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.day-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-weight: bold;
-  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.4);
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.35);
 }
 
 .day-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-6px);
   background: #ffe6f0;
+  box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
 }
+
 
 
 .locked {
