@@ -6,20 +6,12 @@ function updateCountdown() {
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-  document.getElementById("countdown").innerText =
-    days + " days until I see you ❤️";
+  const countdownElement = document.getElementById("countdown-number");
+
+  if (countdownElement) {
+    countdownElement.innerText = days;
+  }
 }
-
-function updateCountdown() {
-  const targetDate = new Date("2026-02-14T00:00:00");
-  const now = new Date();
-  const diff = targetDate - now;
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-  document.getElementById("countdown-number").innerText = days;
-}
-
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
