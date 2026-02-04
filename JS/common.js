@@ -1,6 +1,5 @@
-// Countdown to Feb 14
-alert("JS loaded");
 document.addEventListener("DOMContentLoaded", function () {
+  // Countdown
   function updateCountdown() {
     const targetDate = new Date("2026-02-14T00:00:00");
     const now = new Date();
@@ -27,18 +26,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
-});
 
-// Unlock logic
-document.querySelectorAll(".day-card").forEach((card) => {
-  const unlockDate = new Date(card.dataset.date);
-  const now = new Date();
+  // Unlock logic
+  document.querySelectorAll(".day-card").forEach((card) => {
+    const unlockDate = new Date(card.dataset.date);
+    const now = new Date();
 
-  if (now >= unlockDate) {
-    card.addEventListener("click", () => {
-      window.location.href = card.dataset.link;
-    });
-  } else {
-    card.classList.add("locked");
-  }
+    if (now >= unlockDate) {
+      card.addEventListener("click", () => {
+        window.location.href = card.dataset.link;
+      });
+    } else {
+      card.classList.add("locked");
+    }
+  });
 });
