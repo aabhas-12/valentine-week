@@ -11,22 +11,42 @@ document.addEventListener("DOMContentLoaded", function () {
   const question = document.getElementById("unlock-question");
 
   document.querySelectorAll(".day-card").forEach(function (card) {
+    const unlockDate = new Date(card.dataset.date);
+    const now = new Date();
+
     card.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
 
-      const unlockDate = new Date(card.dataset.date);
-      const now = new Date();
-
       if (now < unlockDate) {
+        // Playful future message
+        modal.style.display = "flex";
+        title.innerText = card.innerText;
+
+        const options = {
+          month: "short",
+          day: "numeric",
+        };
+
+        const unlockText = unlockDate.toLocaleDateString("en-US", options);
+
+        question.innerText = `Not yet 😌 This one unlocks on ${unlockText} 💌`;
+        input.style.display = "none";
+        unlockBtn.style.display = "none";
+        message.innerText = "";
+
         return;
       }
 
-      if (!modal) return;
-
+      // If unlocked → ask memory question
       modal.style.display = "flex";
       title.innerText = card.innerText;
       question.innerText = "When did I give you the first flower? 🌹";
+
+      input.style.display = "block";
+      unlockBtn.style.display = "inline-block";
+      input.value = "";
+      message.innerText = "";
 
       unlockBtn.onclick = function () {
         const answer = input.value.toLowerCase().replace(/\s/g, "");

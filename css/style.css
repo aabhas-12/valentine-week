@@ -248,3 +248,16 @@ body::before {
   color: white;
   cursor: pointer;
 }
+.locked {
+  opacity: 0.4;
+  pointer-events: none;
+  filter: grayscale(60%);
+}
+.unlock-content h2 {
+  margin-bottom: 10px;
+}
+
+.unlock-content p {
+  font-style: italic;
+  color: #c4004f;
+}
