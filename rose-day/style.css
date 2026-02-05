@@ -87,10 +87,22 @@ body {
 }
 
 .final-card {
+  position: relative;
   font-size: 26px;
   color: #800020;
-  animation: fadeIn 1s ease;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
 }
+
+.final-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
 
 @keyframes fadeIn {
   from { opacity: 0; }
