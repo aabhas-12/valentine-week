@@ -6,69 +6,53 @@ body {
   overflow: hidden;
 }
 
-.container {
-  margin-top: 80px;
-  padding: 20px;
-}
-
 .title {
+  margin-top: 40px;
   color: #b3003b;
-  font-size: 40px;
 }
 
-.rose-wrapper {
-  margin: 40px 0;
+.rose-field {
+  position: relative;
+  height: 60vh;
+  margin-top: 40px;
 }
 
 .rose {
-  font-size: 100px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-.message {
-  font-size: 22px;
-  margin: 20px 0;
-  color: #800020;
-}
-
-.btn {
-  background: #b3003b;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
+  position: absolute;
+  font-size: 50px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.3s ease;
 }
 
-.btn:hover {
-  background: #800020;
+.rose:hover {
+  transform: scale(1.2);
 }
 
-.hidden-message {
+.memory-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.memory-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 300px;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 20px;
+  float: right;
+}
+
+.final-message {
   display: none;
   margin-top: 30px;
-  font-size: 20px;
-  color: #5a001f;
-}
-
-/* Falling petals */
-.petal {
-  position: fixed;
-  top: -20px;
-  font-size: 18px;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
-  }
+  font-size: 22px;
+  color: #800020;
 }
