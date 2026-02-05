@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // =========================
-  // MODAL + UNLOCK LOGIC
-  // =========================
-
   const modal = document.getElementById("unlock-modal");
   const input = document.getElementById("unlock-input");
   const message = document.getElementById("unlock-message");
@@ -18,14 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const unlockDate = new Date(card.dataset.date);
       const today = new Date();
 
-      // Remove time from both
       unlockDate.setHours(0, 0, 0, 0);
       today.setHours(0, 0, 0, 0);
 
+      modal.style.display = "flex";
+      title.innerText = card.innerText;
+
       if (today < unlockDate) {
-        // Future day playful message
-        modal.style.display = "flex";
-        title.innerText = card.innerText;
         question.innerText =
           "Not yet 😌 This one unlocks on " + unlockDate.toDateString() + " ❤️";
 
@@ -36,10 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // If unlocked
-      modal.style.display = "flex";
-      title.innerText = card.innerText;
-      question.innerText = "When did I give you the first flower? 🌹";
+      // Show custom question from HTML
+      question.innerText = card.dataset.question;
 
       input.style.display = "block";
       unlockBtn.style.display = "inline-block";
@@ -58,10 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // =========================
   // COUNTDOWN
-  // =========================
-
   function updateCountdown() {
     const targetDate = new Date("2026-02-14T00:00:00");
     const now = new Date();
@@ -87,10 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // =========================
   // FLOATING PETALS
-  // =========================
-
   for (let i = 0; i < 15; i++) {
     const petal = document.createElement("div");
     petal.classList.add("petal");
@@ -101,10 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(petal);
   }
 
-  // =========================
-  // MUSIC TOGGLE
-  // =========================
-
+  // MUSIC
   const music = document.getElementById("bg-music");
   const toggle = document.getElementById("music-toggle");
 
