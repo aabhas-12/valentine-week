@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #fff0f5, #ffd6e7);
+  font-family: Georgia, serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.title {
+  color: #b3003b;
+  font-size: 40px;
+}
+
+.rose-wrapper {
+  margin: 40px 0;
+}
+
+.rose {
+  font-size: 100px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.message {
+  font-size: 22px;
+  margin: 20px 0;
+  color: #800020;
+}
+
+.btn {
+  background: #b3003b;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #800020;
+}
+
+.hidden-message {
+  display: none;
+  margin-top: 30px;
+  font-size: 20px;
+  color: #5a001f;
+}
+
+/* Falling petals */
+.petal {
+  position: fixed;
+  top: -20px;
+  font-size: 18px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
