@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".day-card").forEach(function (card) {
     const unlockDate = new Date(card.dataset.date);
-    const now = new Date();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    unlockDate.setHours(0, 0, 0, 0);
 
     card.addEventListener("click", function (e) {
       e.preventDefault();
