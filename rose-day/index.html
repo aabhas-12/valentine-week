@@ -7,10 +7,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 class="title">🌹 Every Flower Has a Memory 🌹</h1>
+    <div class="page-wrapper">
+      <h1 class="title">🌹 Every Flower Has a Memory 🌹</h1>
+      <p class="subtitle">Click each rose to unlock a moment</p>
 
-    <div class="rose-field" id="rose-field"></div>
+      <!-- Rose Field -->
+      <div class="rose-field" id="rose-field"></div>
 
+      <!-- Progress -->
+      <div class="progress">
+        Memories unlocked: <span id="progress-count">0</span> / 6
+      </div>
+    </div>
+
+    <!-- Memory Modal -->
     <div class="memory-modal" id="memory-modal">
       <div class="memory-content">
         <span class="close" id="close-btn">×</span>
@@ -19,10 +29,15 @@
       </div>
     </div>
 
+    <!-- Final Surprise -->
     <div class="final-message" id="final-message">
-      🌹 You are not just a memory… You are my forever.
+      <div class="final-card">
+        🌹 You are not just a memory...
+        <br /><br />
+        You are my forever. ❤️
+      </div>
     </div>
 
-    <script src="rose.js"></script>
+    <script src="rose.js?v=2"></script>
   </body>
 </html>

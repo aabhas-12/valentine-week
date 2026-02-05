@@ -2,28 +2,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const memories = [
     {
       title: "The First Flower 🌹",
-      text: "The day I gave you your first flower… and you pretended not to smile.",
+      text: "You tried to act normal… but your smile gave you away.",
     },
     {
       title: "Haldwani Surprise ❤️",
-      text: "Your shocked face when I showed up… worth every kilometer.",
+      text: "Your shocked face when I showed up — worth everything.",
     },
     {
       title: "Bhimtal Trip 🌊",
-      text: "The lake was beautiful. But you were the real view.",
+      text: "The lake was beautiful… but I only looked at you.",
     },
     {
       title: "Scooty Ride 🛵",
-      text: "That wind. That laughter. That moment.",
+      text: "Wind in your hair. Laughing without reason.",
     },
-    {
-      title: "That One Hug 🤗",
-      text: "Some hugs stay in the heart forever.",
-    },
-    {
-      title: "Us 🌹",
-      text: "Not just today. Every life.",
-    },
+    { title: "That One Hug 🤗", text: "Some hugs feel like home." },
+    { title: "Us 🌹", text: "Not just this life. Every life." },
   ];
 
   const roseField = document.getElementById("rose-field");
@@ -32,29 +26,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const text = document.getElementById("memory-text");
   const closeBtn = document.getElementById("close-btn");
   const finalMessage = document.getElementById("final-message");
+  const progressCount = document.getElementById("progress-count");
 
-  let clickedCount = 0;
+  let clicked = 0;
 
   memories.forEach((memory, index) => {
     const rose = document.createElement("div");
     rose.classList.add("rose");
     rose.innerText = "🌹";
 
-    rose.style.top = Math.random() * 80 + "%";
-    rose.style.left = Math.random() * 90 + "%";
+    rose.style.top = Math.random() * 70 + "%";
+    rose.style.left = Math.random() * 85 + "%";
 
     rose.addEventListener("click", function () {
       title.innerText = memory.title;
       text.innerText = memory.text;
-
       modal.style.display = "flex";
 
       rose.style.visibility = "hidden";
-      clickedCount++;
+      clicked++;
+      progressCount.innerText = clicked;
 
-      if (clickedCount === memories.length) {
+      if (clicked === memories.length) {
         setTimeout(() => {
-          finalMessage.style.display = "block";
+          finalMessage.style.display = "flex";
         }, 1000);
       }
     });
