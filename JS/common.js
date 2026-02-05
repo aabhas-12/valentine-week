@@ -8,32 +8,39 @@ document.addEventListener("DOMContentLoaded", function () {
   const question = document.getElementById("unlock-question");
 
   document.querySelectorAll(".day-card").forEach((card) => {
-    card.onclick = function (e) {
-      e.preventDefault();
-      e.stopPropagation();
 
-      const unlockDate = new Date(card.dataset.date);
-      const now = new Date();
+  card.addEventListener("click", function (e) {
 
-      if (now < unlockDate) {
-        return;
+    e.preventDefault();
+    e.stopImmediatePropagation();  // 🔥 important
+
+    const unlockDate = new Date(card.dataset.date);
+    const now = new Date();
+
+    if (now < unlockDate) {
+      return;
+    }
+
+    modal.style.display = "flex";
+    title.innerText = card.innerText;
+    question.innerText = "When did I give you the first flower? 🌹";
+
+    unlockBtn.onclick = function (event) {
+      event.stopPropagation();
+
+      const answer = input.value.toLowerCase().replace(/\s/g, "");
+
+      if (answer === card.dataset.code) {
+        window.location.href = card.dataset.link;
+      } else {
+        message.innerText = "Hmm… think again ❤️";
       }
-
-      modal.style.display = "flex";
-      title.innerText = card.innerText;
-      question.innerText = "When did I give you the first flower? 🌹";
-
-      unlockBtn.onclick = function () {
-        const answer = input.value.toLowerCase().replace(/\s/g, "");
-
-        if (answer === card.dataset.code) {
-          window.location.href = card.dataset.link;
-        } else {
-          message.innerText = "Hmm… think again ❤️";
-        }
-      };
     };
+
   });
+
+});
+
 
   function updateCountdown() {
     const targetDate = new Date("2026-02-14T00:00:00");
