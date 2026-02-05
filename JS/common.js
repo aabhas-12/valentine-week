@@ -122,13 +122,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const unlockClose = document.getElementById("unlock-close");
-
-  if (unlockClose) {
-    unlockClose.addEventListener("click", function () {
-      modal.style.display = "none";
-      message.innerText = "";
-      input.value = "";
-    });
-  }
+  // CLOSE UNLOCK MODAL
+  document.addEventListener("click", function (e) {
+    if (e.target && e.target.id === "unlock-close") {
+      const modal = document.getElementById("unlock-modal");
+      if (modal) {
+        modal.style.display = "none";
+      }
+    }
+  });
 });
