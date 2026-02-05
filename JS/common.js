@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // =========================
+  // MODAL + UNLOCK LOGIC
+  // =========================
+
   const modal = document.getElementById("unlock-modal");
   const input = document.getElementById("unlock-input");
   const message = document.getElementById("unlock-message");
@@ -12,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.stopImmediatePropagation();
 
       const unlockDate = new Date(card.dataset.date);
-      const today = new Date();
+      const today = new Date(); // ✅ THIS WAS MISSING
 
       unlockDate.setHours(0, 0, 0, 0);
       today.setHours(0, 0, 0, 0);
@@ -31,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Show custom question from HTML
-      question.innerText = card.dataset.question;
+      // Show custom question
+      question.innerText = card.dataset.question || "Answer to unlock ❤️";
 
       input.style.display = "block";
       unlockBtn.style.display = "inline-block";
@@ -41,8 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       unlockBtn.onclick = function () {
         const answer = input.value.toLowerCase().replace(/\s/g, "");
+        const correctCode = (card.dataset.code || "").toLowerCase();
 
-        if (answer === card.dataset.code) {
+        if (answer === correctCode) {
           window.location.href = card.dataset.link;
         } else {
           message.innerText = "Hmm… think again ❤️";
@@ -51,7 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // =========================
   // COUNTDOWN
+  // =========================
+
   function updateCountdown() {
     const targetDate = new Date("2026-02-14T00:00:00");
     const now = new Date();
@@ -77,7 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
+  // =========================
   // FLOATING PETALS
+  // =========================
+
   for (let i = 0; i < 15; i++) {
     const petal = document.createElement("div");
     petal.classList.add("petal");
@@ -88,7 +99,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(petal);
   }
 
-  // MUSIC
+  // =========================
+  // MUSIC TOGGLE
+  // =========================
+
   const music = document.getElementById("bg-music");
   const toggle = document.getElementById("music-toggle");
 
