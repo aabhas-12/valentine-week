@@ -121,14 +121,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  const unlockClose = document.getElementById("unlock-close");
+
+  if (unlockClose) {
+    unlockClose.addEventListener("click", function () {
+      modal.style.display = "none";
+      message.innerText = "";
+      input.value = "";
+    });
+  }
 });
-
-const unlockClose = document.getElementById("unlock-close");
-
-if (unlockClose) {
-  unlockClose.addEventListener("click", function () {
-    modal.style.display = "none";
-    message.innerText = "";
-    input.value = "";
-  });
-}
