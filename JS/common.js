@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const title = document.getElementById("unlock-title");
   const question = document.getElementById("unlock-question");
 
-  document.querySelectorAll(".day-card").forEach((card) => {
+  document.querySelectorAll(".day-card").forEach(function (card) {
     card.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
@@ -22,13 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      if (!modal) return;
+
       modal.style.display = "flex";
       title.innerText = card.innerText;
       question.innerText = "When did I give you the first flower? 🌹";
 
-      unlockBtn.onclick = function (event) {
-        event.stopPropagation();
-
+      unlockBtn.onclick = function () {
         const answer = input.value.toLowerCase().replace(/\s/g, "");
 
         if (answer === card.dataset.code) {
@@ -90,17 +90,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const music = document.getElementById("bg-music");
   const toggle = document.getElementById("music-toggle");
 
-  toggle.addEventListener("click", async function () {
-    if (music.paused) {
-      try {
-        await music.play();
-        toggle.innerText = "🔊";
-      } catch (error) {
-        console.log("Playback failed:", error);
+  if (toggle && music) {
+    toggle.addEventListener("click", async function () {
+      if (music.paused) {
+        try {
+          await music.play();
+          toggle.innerText = "🔊";
+        } catch (error) {
+          console.log("Playback failed:", error);
+        }
+      } else {
+        music.pause();
+        toggle.innerText = "🎵";
       }
-    } else {
-      music.pause();
-      toggle.innerText = "🎵";
-    }
-  });
+    });
+  }
 });
