@@ -69,9 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // CLOSE FINAL SCREEN
-  if (finalClose) {
-    finalClose.addEventListener("click", function () {
+  document.addEventListener("click", function (e) {
+  if (e.target && e.target.id === "final-close") {
+    const finalMessage = document.getElementById("final-message");
+    if (finalMessage) {
       finalMessage.style.display = "none";
-    });
+    }
   }
 });
