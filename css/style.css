@@ -261,3 +261,19 @@ body::before {
   font-style: italic;
   color: #c4004f;
 }
+.unlock-content {
+  position: relative;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 350px;
+}
+
+.unlock-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #b3003b;
+}
