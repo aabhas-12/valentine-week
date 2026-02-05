@@ -27,9 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.getElementById("close-btn");
   const finalMessage = document.getElementById("final-message");
   const progressCount = document.getElementById("progress-count");
+  const finalClose = document.getElementById("final-close");
 
   let clicked = 0;
+  let roseElements = [];
 
+  // CREATE ROSES
   memories.forEach((memory, index) => {
     const rose = document.createElement("div");
     rose.classList.add("rose");
@@ -50,14 +53,25 @@ document.addEventListener("DOMContentLoaded", function () {
       if (clicked === memories.length) {
         setTimeout(() => {
           finalMessage.style.display = "flex";
-        }, 1000);
+        }, 800);
       }
     });
 
     roseField.appendChild(rose);
+    roseElements.push(rose);
   });
 
-  closeBtn.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
+  // CLOSE MEMORY MODAL
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  }
+
+  // CLOSE FINAL SCREEN
+  if (finalClose) {
+    finalClose.addEventListener("click", function () {
+      finalMessage.style.display = "none";
+    });
+  }
 });
