@@ -11,28 +11,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const question = document.getElementById("unlock-question");
 
   document.querySelectorAll(".day-card").forEach(function (card) {
-    const unlockDate = new Date(card.dataset.date);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    unlockDate.setHours(0, 0, 0, 0);
-
     card.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
 
-      if (now < unlockDate) {
-        // Playful future message
+      const unlockDate = new Date(card.dataset.date);
+      const today = new Date();
+
+      // Remove time from both
+      unlockDate.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
+
+      if (today < unlockDate) {
+        // Future day playful message
         modal.style.display = "flex";
         title.innerText = card.innerText;
+        question.innerText =
+          "Not yet 😌 This one unlocks on " + unlockDate.toDateString() + " ❤️";
 
-        const options = {
-          month: "short",
-          day: "numeric",
-        };
-
-        const unlockText = unlockDate.toLocaleDateString("en-US", options);
-
-        question.innerText = `Not yet 😌 This one unlocks on ${unlockText} 💌`;
         input.style.display = "none";
         unlockBtn.style.display = "none";
         message.innerText = "";
@@ -40,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // If unlocked → ask memory question
+      // If unlocked
       modal.style.display = "flex";
       title.innerText = card.innerText;
       question.innerText = "When did I give you the first flower? 🌹";
