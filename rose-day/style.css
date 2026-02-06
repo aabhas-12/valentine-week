@@ -6,6 +6,10 @@ body {
   overflow-x: hidden;
 }
 
+/* =========================
+   PAGE LAYOUT
+========================= */
+
 .page-wrapper {
   padding-top: 40px;
 }
@@ -20,9 +24,20 @@ body {
   margin-bottom: 30px;
 }
 
+.progress {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #800020;
+}
+
+/* =========================
+   ROSE FIELD
+========================= */
+
 .rose-field {
   position: relative;
   height: 60vh;
+  width: 100%;
 }
 
 .rose {
@@ -42,11 +57,9 @@ body {
   50% { transform: translateY(-10px); }
 }
 
-.progress {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #800020;
-}
+/* =========================
+   MEMORY MODAL
+========================= */
 
 .memory-modal {
   display: none;
@@ -59,23 +72,43 @@ body {
 }
 
 .memory-content {
+  position: relative;
   background: white;
   padding: 30px;
   border-radius: 20px;
-  width: 320px;
+  width: 350px;
+  text-align: center;
   animation: popIn 0.3s ease;
 }
 
-@keyframes popIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* Close button inside modal */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 22px;
+  color: #b3003b;
 }
 
-.close {
-  cursor: pointer;
-  font-size: 20px;
-  float: right;
+/* Image inside modal */
+.memory-image {
+  width: 100%;
+  border-radius: 15px;
+  margin: 15px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  opacity: 0;
+  animation: imageFade 0.5s ease forwards;
 }
+
+@keyframes imageFade {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* =========================
+   FINAL MESSAGE
+========================= */
 
 .final-message {
   display: none;
@@ -84,6 +117,7 @@ body {
   background: rgba(255,240,245,0.95);
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.4s ease;
 }
 
 .final-card {
@@ -93,32 +127,30 @@ body {
   padding: 40px;
   background: white;
   border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
+/* Close button for final message */
 .final-close {
   position: absolute;
   top: 15px;
   right: 20px;
   cursor: pointer;
   font-size: 22px;
+  color: #b3003b;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-.memory-image {
-  width: 100%;
-  border-radius: 15px;
-  margin: 15px 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-.memory-content {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  width: 350px;
-  text-align: center;
 }

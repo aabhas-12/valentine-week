@@ -6,6 +6,7 @@
     <title>Rose Day 🌹</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div class="page-wrapper">
       <h1 class="title">🌹 Every Flower Has a Memory 🌹</h1>
@@ -16,18 +17,25 @@
 
       <!-- Progress -->
       <div class="progress">
-        Memories unlocked: <span id="progress-count">0</span> / 6
+        Memories unlocked:
+        <span id="progress-count">0</span> / 6
       </div>
     </div>
 
     <!-- Memory Modal -->
     <div class="memory-modal" id="memory-modal">
       <div class="memory-content">
-        <span class="close" id="close-btn">×</span>
+        <span class="close" id="close-btn">&times;</span>
 
         <h2 id="memory-title"></h2>
 
-        <img id="memory-image" class="memory-image" />
+        <!-- Add alt + default hidden -->
+        <img
+          id="memory-image"
+          class="memory-image"
+          alt="Memory Photo"
+          style="display: none"
+        />
 
         <p id="memory-text"></p>
       </div>
@@ -36,13 +44,14 @@
     <!-- Final Surprise -->
     <div class="final-message" id="final-message">
       <div class="final-card">
-        <span class="final-close" id="final-close">×</span>
+        <span class="final-close" id="final-close">&times;</span>
         🌹 You are not just a memory...
         <br /><br />
         You are my forever. ❤️
       </div>
     </div>
 
+    <!-- Load script at end -->
     <script src="rose.js"></script>
   </body>
 </html>
