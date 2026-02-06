@@ -3,32 +3,32 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       title: "The First Flower🌹",
       text: "That smile told me everything.",
-      image: "assets/rose-images/rose1.jpeg",
+      image: "../assets/rose-images/rose1.jpeg",
     },
     {
       title: "Haldwani Surprise ❤️",
       text: "Your shocked face was priceless.",
-      image: "assets/rose-images/rose2.jpeg",
+      image: "../assets/rose-images/rose2.jpeg",
     },
     {
       title: "Bhimtal Trip 🌊",
       text: "The lake was beautiful, but you were magic.",
-      image: "assets/rose-images/rose3.jpeg",
+      image: "../assets/rose-images/rose3.jpeg",
     },
     {
       title: "Scooty Ride 🛵",
       text: "Wind in your hair. Pure happiness.",
-      image: "assets/rose-images/rose4.jpeg",
+      image: "../assets/rose-images/rose4.jpeg",
     },
     {
       title: "That One Hug 🤗",
       text: "Some hugs feel like home.",
-      image: "assets/rose-images/rose5.jpeg",
+      image: "../assets/rose-images/rose5.jpeg",
     },
     {
       title: "Us 🌹",
       text: "Not just this life. Every life.",
-      image: "assets/rose-images/rose6.jpeg",
+      image: "../assets/rose-images/rose6.jpeg",
     },
   ];
 
