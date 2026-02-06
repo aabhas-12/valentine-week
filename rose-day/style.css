@@ -114,22 +114,37 @@ body {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(255,240,245,0.95);
+  background: linear-gradient(to bottom, #fff0f5, #ffd6e7);
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.4s ease;
+  animation: fadeIn 0.6s ease forwards;
+  z-index: 1000;
 }
 
 .final-card {
   position: relative;
-  font-size: 26px;
-  color: #800020;
-  padding: 40px;
+  font-size: 28px;
+  color: #b3003b;
+  padding: 50px 40px;
   background: white;
-  border-radius: 20px;
+  border-radius: 25px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  animation: popIn 0.5s ease forwards;
 }
+
+.final-card h2 {
+  margin-bottom: 20px;
+}
+
+.final-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
 
 /* Close button for final message */
 .final-close {
