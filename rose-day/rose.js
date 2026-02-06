@@ -79,10 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Show final message when all roses clicked
       if (clicked === memories.length) {
+        // Fade out roses smoothly
+        roseField.style.transition = "opacity 0.6s ease";
+        roseField.style.opacity = "0";
+
         setTimeout(function () {
-          if (finalMessage) {
-            finalMessage.style.display = "flex";
-          }
+          finalMessage.style.display = "flex";
         }, 800);
       }
     });

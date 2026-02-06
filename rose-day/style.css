@@ -169,3 +169,33 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+.final-message {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to bottom, #fff0f5, #ffd6e7);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.8s ease forwards;
+  z-index: 1000;
+}
+
+.final-card {
+  background: white;
+  padding: 50px;
+  border-radius: 30px;
+  width: 420px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  animation: popIn 0.6s ease forwards;
+}
+
+.final-card h2 {
+  color: #b3003b;
+  margin-bottom: 20px;
+}
+
+.final-card p {
+  font-size: 18px;
+  color: #800020;
+}
