@@ -3,26 +3,22 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       title: "The First Flower 🌹",
       text: "That smile told me everything.",
-      image:
-        "https://aabhas-12.github.io/valentine-week/assets/rose-images/rose1.jpeg",
+      image: "images/rose1.jpeg",
     },
     {
       title: "Haldwani Surprise ❤️",
       text: "Your shocked face was priceless.",
-      image:
-        "https://aabhas-12.github.io/valentine-week/assets/rose-images/rose2.jpeg",
+      image: "images/rose2.jpeg",
     },
     {
       title: "Bhimtal Trip 🌊",
       text: "The lake was beautiful, but you were magic.",
-      image:
-        "https://aabhas-12.github.io/valentine-week/assets/rose-images/rose3.jpeg",
+      image: "images/rose3.jpeg",
     },
     {
       title: "Scooty Ride 🛵",
       text: "Wind in your hair. Pure happiness.",
-      image:
-        "https://aabhas-12.github.io/valentine-week/assets/rose-images/rose4.jpeg",
+      image: "images/rose4.jpeg",
     },
     {
       title: "That One Hug 🤗",
@@ -32,8 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       title: "Us 🌹",
       text: "Not just this life. Every life.",
-      image:
-        "https://aabhas-12.github.io/valentine-week/assets/rose-images/rose6.jpeg",
+      image: "images/rose6.jpeg",
     },
   ];
 
