@@ -1,23 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
   const memories = [
     {
-      title: "The First Flower 🌹",
-      text: "You tried to act normal… but your smile gave you away.",
+      title: "The First Flower🌹",
+      text: "That smile told me everything.",
+      image: "assets/rose-images/rose1.jpeg",
     },
     {
       title: "Haldwani Surprise ❤️",
-      text: "Your shocked face when I showed up — worth everything.",
+      text: "Your shocked face was priceless.",
+      image: "assets/rose-images/rose2.jpeg",
     },
     {
       title: "Bhimtal Trip 🌊",
-      text: "The lake was beautiful… but I only looked at you.",
+      text: "The lake was beautiful, but you were magic.",
+      image: "assets/rose-images/rose3.jpeg",
     },
     {
       title: "Scooty Ride 🛵",
-      text: "Wind in your hair. Laughing without reason.",
+      text: "Wind in your hair. Pure happiness.",
+      image: "assets/rose-images/rose4.jpeg",
     },
-    { title: "That One Hug 🤗", text: "Some hugs feel like home." },
-    { title: "Us 🌹", text: "Not just this life. Every life." },
+    {
+      title: "That One Hug 🤗",
+      text: "Some hugs feel like home.",
+      image: "assets/rose-images/rose5.jpeg",
+    },
+    {
+      title: "Us 🌹",
+      text: "Not just this life. Every life.",
+      image: "assets/rose-images/rose6.jpeg",
+    },
   ];
 
   const roseField = document.getElementById("rose-field");
