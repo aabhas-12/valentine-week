@@ -27,8 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       title: "That One Hug 🤗",
       text: "Some hugs feel like home.",
-      image:
-        "https://aabhas-12.github.io/valentine-week/assets/rose-images/rose5.jpeg",
+      image: "images/rose5.jpeg",
     },
     {
       title: "Us 🌹",
