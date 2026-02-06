@@ -30,14 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const finalClose = document.getElementById("final-close");
 
   let clicked = 0;
-  let roseElements = [];
 
-  // CREATE ROSES
-  memories.forEach((memory, index) => {
+  memories.forEach(function (memory) {
     const rose = document.createElement("div");
     rose.classList.add("rose");
     rose.innerText = "🌹";
 
+    rose.style.position = "absolute";
     rose.style.top = Math.random() * 70 + "%";
     rose.style.left = Math.random() * 85 + "%";
 
@@ -51,29 +50,24 @@ document.addEventListener("DOMContentLoaded", function () {
       progressCount.innerText = clicked;
 
       if (clicked === memories.length) {
-        setTimeout(() => {
+        setTimeout(function () {
           finalMessage.style.display = "flex";
         }, 800);
       }
     });
 
     roseField.appendChild(rose);
-    roseElements.push(rose);
   });
 
-  // CLOSE MEMORY MODAL
   if (closeBtn) {
     closeBtn.addEventListener("click", function () {
       modal.style.display = "none";
     });
   }
 
-  // CLOSE FINAL SCREEN
-  document.addEventListener("click", function (e) {
-  if (e.target && e.target.id === "final-close") {
-    const finalMessage = document.getElementById("final-message");
-    if (finalMessage) {
+  if (finalClose) {
+    finalClose.addEventListener("click", function () {
       finalMessage.style.display = "none";
-    }
+    });
   }
 });

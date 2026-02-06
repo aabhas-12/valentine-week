@@ -1,136 +1,27 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>For Nishtha ❤️</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>For Nishtha ❤️</h1>
-      <p class="tagline">7 Days. 7 Little Worlds. One Forever.</p>
-
-      <div class="countdown">
-        <div class="time-box">
-          <span id="days">0</span>
-          <p>Days</p>
-        </div>
-        <div class="time-box">
-          <span id="hours">0</span>
-          <p>Hours</p>
-        </div>
-        <div class="time-box">
-          <span id="minutes">0</span>
-          <p>Minutes</p>
-        </div>
-        <div class="time-box">
-          <span id="seconds">0</span>
-          <p>Seconds</p>
-        </div>
-      </div>
-
-      <button id="music-toggle">🎵</button>
-      <audio id="bg-music" loop>
-        <source src="assets/music/romantic.mp3" type="audio/mpeg" />
-      </audio>
-
-      <div class="days-grid">
-        <div
-          class="day-card"
-          data-date="2024-01-01"
-          data-link="rose-day/index.html"
-          data-code="3may2024"
-          data-question="When did I give you the first flower? 🌹"
-        >
-          🌹 Rose Day
-        </div>
-
-        <div
-          class="day-card"
-          data-date="2026-02-08"
-          data-link="propose-day/index.html"
-          data-code="jaiguru"
-          data-question="At which place I proposed you? 🌹"
-        >
-          💍 Propose Day
-        </div>
-
-        <div
-          class="day-card"
-          data-date="2026-02-09"
-          data-link="chocolate-day/index.html"
-          data-code="3may2024"
-          data-question="When did I give you the first flower? 🌹"
-        >
-          🍫 Chocolate Day
-        </div>
-
-        <div
-          class="day-card"
-          data-date="2026-02-10"
-          data-link="teddy-day/index.html"
-          data-code="3may2024"
-          data-question="When did I give you the first flower? 🌹"
-        >
-          🧸 Teddy Day
-        </div>
-
-        <div
-          class="day-card"
-          data-date="2026-02-11"
-          data-link="promise-day/index.html"
-          data-code="3may2024"
-          data-question="When did I give you the first flower? 🌹"
-        >
-          💌 Promise Day
-        </div>
-
-        <div
-          class="day-card"
-          data-date="2026-02-12"
-          data-link="hug-day/index.html"
-          data-code="3may2024"
-          data-question="When did I give you the first flower? 🌹"
-        >
-          🤗 Hug Day
-        </div>
-
-        <div
-          class="day-card"
-          data-date="2026-02-13"
-          data-link="kiss-day/index.html"
-          data-code="3may2024"
-          data-question="When did I give you the first flower? 🌹"
-        >
-          💋 Kiss Day
-        </div>
-
-        <div
-          class="day-card"
-          data-date="2026-02-14"
-          data-link="valentines-day/index.html"
-          data-code="3may2024"
-          data-question="When did I give you the first flower? 🌹"
-        >
-          ❤️ Valentine’s Day
-        </div>
-      </div>
-    </div>
-    <div class="unlock-modal" id="unlock-modal">
-      <div class="unlock-content">
-        <span class="unlock-close" id="unlock-close">×</span>
-
-        <h2 id="unlock-title"></h2>
-        <p id="unlock-question"></p>
-
-        <input type="text" id="unlock-input" />
-        <button id="unlock-btn">Unlock</button>
-
-        <p id="unlock-message"></p>
-      </div>
-    </div>
-
-    <script src="JS/common.js"></script>
-  </body>
-</html>
+document.addEventListener("DOMContentLoaded", function () { const memories = [ {
+title: "The First Flower 🌹", text: "You tried to act normal… but your smile
+gave you away." }, { title: "Haldwani Surprise ❤️", text: "Your shocked face
+when I showed up — worth everything." }, { title: "Bhimtal Trip 🌊", text: "The
+lake was beautiful… but I only looked at you." }, { title: "Scooty Ride 🛵",
+text: "Wind in your hair. Laughing without reason." }, { title: "That One Hug
+🤗", text: "Some hugs feel like home." }, { title: "Us 🌹", text: "Not just this
+life. Every life." } ]; const roseField = document.getElementById("rose-field");
+const modal = document.getElementById("memory-modal"); const title =
+document.getElementById("memory-title"); const text =
+document.getElementById("memory-text"); const closeBtn =
+document.getElementById("close-btn"); const finalMessage =
+document.getElementById("final-message"); const progressCount =
+document.getElementById("progress-count"); const finalClose =
+document.getElementById("final-close"); let clicked = 0;
+memories.forEach(function (memory) { const rose = document.createElement("div");
+rose.classList.add("rose"); rose.innerText = "🌹"; rose.style.position =
+"absolute"; rose.style.top = Math.random() * 70 + "%"; rose.style.left =
+Math.random() * 85 + "%"; rose.addEventListener("click", function () {
+title.innerText = memory.title; text.innerText = memory.text;
+modal.style.display = "flex"; rose.style.visibility = "hidden"; clicked++;
+progressCount.innerText = clicked; if (clicked === memories.length) {
+setTimeout(function () { finalMessage.style.display = "flex"; }, 800); } });
+roseField.appendChild(rose); }); if (closeBtn) {
+closeBtn.addEventListener("click", function () { modal.style.display = "none";
+}); } if (finalClose) { finalClose.addEventListener("click", function () {
+finalMessage.style.display = "none"; }); } });
