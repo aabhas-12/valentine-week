@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       image: "images/rose2.jpeg",
     },
     {
-      title: "Bhimtal Trip 🌊",
+      title: "Bhimtal 🌊",
       text: "The lake was beautiful, but you were magic.",
       image: "images/rose3.jpeg",
     },
