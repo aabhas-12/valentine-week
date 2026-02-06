@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   const memories = [
     {
-      title: "The First Flower 🌹",
+      title: "You are my favourite rose 🌹",
       text: "That smile told me everything.",
       image: "images/rose1.jpeg",
     },
     {
-      title: "Haldwani Surprise ❤️",
-      text: "Your shocked face was priceless.",
+      title: "Dehradun visit ❤️",
+      text: "That day is priceless for me.",
       image: "images/rose2.jpeg",
     },
     {
@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
       image: "images/rose3.jpeg",
     },
     {
-      title: "Scooty Ride 🛵",
-      text: "Wind in your hair. Pure happiness.",
+      title: "You are my favourite flower 🌻",
+      text: "Seeing you smiling is pure happiness.",
       image: "images/rose4.jpeg",
     },
     {
