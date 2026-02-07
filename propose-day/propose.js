@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const photos = [
     {
-      src: "images/p1.jpeg",
+      src: "p1.jpeg",
       text: "The day I knew it is you only for me 😌",
     },
     {
-      src: "images/p2.jpeg",
+      src: "p2.jpeg",
       text: "The day I didn’t want to leave.",
     },
     {
-      src: "images/p3.jpeg",
+      src: "p3.jpeg",
       text: "The day I knew I don’t want anyone else.",
     },
   ];
