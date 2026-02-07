@@ -37,7 +37,7 @@ h1 {
 .tier {
   background: linear-gradient(to bottom, #5c2c1a, #2e140d);
   border-radius: 50%;
-  margin: 2px 0;
+  margin: 7px 0;
   box-shadow: 0 10px 25px rgba(0,0,0,0.6);
   position: relative;
 }
