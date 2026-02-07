@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       modal.style.display = "flex";
       title.innerText = card.innerText;
+      input.placeholder = card.dataset.placeholder;
 
       if (today < unlockDate) {
         question.innerText =
