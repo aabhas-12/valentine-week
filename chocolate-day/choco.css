@@ -1,105 +1,170 @@
+/* ===============================
+   GLOBAL
+=================================*/
+
 body {
   margin: 0;
-  background: radial-gradient(circle at center, #3a1f1f, #1b0f0f);
   font-family: Georgia, serif;
+  background: radial-gradient(circle at center, #3b1f16, #1e0f0b);
   color: #f5e6d3;
   text-align: center;
   min-height: 100vh;
-}
-
-.page {
-  padding-top: 60px;
+  overflow-x: hidden;
 }
 
 h1 {
-  font-size: 38px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  font-size: 42px;
+  letter-spacing: 1px;
 }
 
-.message {
-  margin-top: 50px;
-  font-size: 20px;
-  line-height: 1.8;
+.subtitle {
+  margin-top: 10px;
+  font-size: 18px;
+  opacity: 0.9;
 }
 
-/* ========================= */
-/* Fountain */
-/* ========================= */
-
-.fountain {
-  margin: 0 auto;
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tier {
-  background: linear-gradient(to bottom, #5c2c1a, #2e140d);
-  border-radius: 50%;
-  margin: 15px 0;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-  position: relative;
-}
-
-/* Different sizes */
-.tier1 { width: 60px; height: 30px; }
-.tier2 { width: 90px; height: 35px; }
-.tier3 { width: 120px; height: 40px; }
-.tier4 { width: 160px; height: 45px; }
-
-/* Chocolate flow */
-.tier::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 100%;
-  width: 10px;
-  height: 50px;
-  background: linear-gradient(to bottom, #5c2c1a, #2e140d);
-  border-radius: 10px;
-  opacity: 0.8;
-  animation: drip 2s infinite;
-}
-
-@keyframes drip {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
-}
-.choco-wrapper {
-  text-align: center;
-  padding-top: 40px;
-  position: relative;
-  z-index: 5;
-}
+/* ===============================
+   FOUNTAIN LAYOUT
+=================================*/
 
 .fountain-container {
   position: relative;
-  margin-top: 40px;
-  height: 400px;
+  margin-top: 50px;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .fountain {
+  position: relative;
+  width: 220px;
+  height: 360px;
+}
+
+/* Pole */
+.pole {
+  position: absolute;
+  width: 16px;
+  height: 100%;
+  background: linear-gradient(to bottom, #4a2c1d, #2b150e);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+
+/* ===============================
+   TIERS
+=================================*/
+
+.tier {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  background: radial-gradient(circle at top, #5a2e1a, #2b150e);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.tier:hover {
+  transform: translateX(-50%) scale(1.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Tier sizes & stacking */
+.tier-1 {
+  width: 80px;
+  height: 30px;
+  top: 0;
+}
+
+.tier-2 {
+  width: 120px;
+  height: 35px;
+  top: 70px;
+}
+
+.tier-3 {
+  width: 160px;
+  height: 40px;
+  top: 150px;
+}
+
+.tier-4 {
+  width: 200px;
+  height: 50px;
+  top: 240px;
+}
+
+/* ===============================
+   TIER MESSAGE
+=================================*/
 
 .tier-message {
   position: absolute;
-  left: 60%;
-  top: 150px;
-  width: 250px;
-  color: #f5e6d3;
-  font-size: 18px;
+  left: calc(50% + 160px);
+  top: 160px;
+  width: 260px;
   text-align: left;
-  z-index: 5;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #f8e8d8;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.final-message,
-.choco-ending {
-  margin-top: 50px;
+.tier-message.show {
+  opacity: 1;
+}
+
+/* ===============================
+   FINAL MESSAGE
+=================================*/
+
+.final-section {
+  margin-top: 60px;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #2a140e, #1a0c08);
+  border-top: 2px solid rgba(255, 215, 160, 0.3);
+}
+
+.final-section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.final-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   HIDDEN CLASS
+=================================*/
+
+.hidden {
+  display: none;
+}
+
+/* ===============================
+   SMOOTH FADE IN
+=================================*/
+
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
