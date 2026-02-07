@@ -88,4 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
     heart.style.fontSize = 14 + Math.random() * 20 + "px";
     document.body.appendChild(heart);
   }
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+    document.body.appendChild(heart);
+  }
 });
