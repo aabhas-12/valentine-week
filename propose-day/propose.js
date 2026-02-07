@@ -36,15 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================
   if (ringBox) {
     ringBox.addEventListener("click", function () {
-      if (ringOpened) return; // prevent multiple triggers
-      ringOpened = true;
-
+      ringBox.style.transform = "scale(1.3)";
       ringBox.innerText = "💍";
-      mainText.innerText = "Okay… now look carefully 😌";
 
       setTimeout(function () {
+        ringBox.style.transform = "scale(1)";
         gallery.classList.remove("hidden");
-        currentIndex = 0;
         showPhoto();
       }, 800);
     });
