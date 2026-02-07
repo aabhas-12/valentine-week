@@ -23,50 +23,57 @@ body {
 
 .fountain {
   position: relative;
-  width: 300px;
-  margin: 0 auto;
+  width: 200px;
+  height: 400px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Chocolate Tiers */
-
 .tier {
-  margin: 15px auto;
-  border-radius: 50px;
-  cursor: pointer;
+  width: 120px;
+  height: 50px;
+  background: linear-gradient(to bottom, #4b2e2e, #2b1a1a);
+  border-radius: 50%;
+  margin: 15px 0;
   position: relative;
-  background: linear-gradient(#5c2f27, #3a1c17);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
   transition: transform 0.3s ease;
+  z-index: 5;
 }
 
 .tier:hover {
   transform: scale(1.05);
 }
 
-.tier1 { width: 120px; height: 40px; }
-.tier2 { width: 180px; height: 45px; }
-.tier3 { width: 230px; height: 50px; }
-.tier4 { width: 280px; height: 55px; }
+/* Make tiers different sizes */
+.tier1 { width: 70px; }
+.tier2 { width: 100px; }
+.tier3 { width: 130px; }
+.tier4 { width: 160px; }
 
-/* Flow Effect */
-
+/* Chocolate flow effect */
 .tier::after {
   content: "";
   position: absolute;
-  top: 100%;
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 18px;
-  height: 50px;
-  background: linear-gradient(#6f3e37, #2b140f);
-  border-radius: 20px;
+  width: 12px;
+  height: 80px;
+  background: linear-gradient(to bottom, #5a3825, #2b1a1a);
+  border-radius: 10px;
   animation: flow 2s infinite linear;
 }
 
 @keyframes flow {
-  from { transform: translateX(-50%) translateY(0); }
-  to { transform: translateX(-50%) translateY(20px); }
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
+
 
 /* Story Card */
 
