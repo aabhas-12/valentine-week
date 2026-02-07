@@ -27,14 +27,11 @@ h1 {
 /* ========================= */
 
 .fountain {
-  position: relative;
-  width: 300px;
-  height: 500px;
-}
-.fountain-area {
+  margin: 0 auto;
+  width: 200px;
   display: flex;
-  justify-content: center;
-  margin-top: 80px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tier {
@@ -70,50 +67,4 @@ h1 {
   0% { opacity: 0.6; }
   50% { opacity: 1; }
   100% { opacity: 0.6; }
-}
-.fountain-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
-  margin-top: 80px;
-}
-
-/* Message box */
-.tier-message {
-  position: absolute;
-  left: 180px;   /* move right near tiers */
-  top: 200px;    /* default vertical */
-  width: 220px;
-  font-size: 20px;
-  color: #f5e6d3;
-  line-height: 1.5;
-  transition: all 0.4s ease;
-}
-
-/* Tiers */
-.tier {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.tier:hover {
-  transform: scale(1.05);
-}
-
-/* Final message */
-.final-message {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 22px;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.final-message.show {
-  opacity: 1;
-}
-
-.hidden {
-  display: none;
 }
