@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle at center, #2b0f0a, #3e1a13, #1a0a06);
+  font-family: Georgia, serif;
+  color: #f8e6d8;
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.title {
+  margin-top: 40px;
+  font-size: 32px;
+}
+
+.subtitle {
+  margin-bottom: 30px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Fountain Layout */
+
+.fountain {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+
+/* Chocolate Tiers */
+
+.tier {
+  margin: 15px auto;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  background: linear-gradient(#5c2f27, #3a1c17);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.tier:hover {
+  transform: scale(1.05);
+}
+
+.tier1 { width: 120px; height: 40px; }
+.tier2 { width: 180px; height: 45px; }
+.tier3 { width: 230px; height: 50px; }
+.tier4 { width: 280px; height: 55px; }
+
+/* Flow Effect */
+
+.tier::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 50px;
+  background: linear-gradient(#6f3e37, #2b140f);
+  border-radius: 20px;
+  animation: flow 2s infinite linear;
+}
+
+@keyframes flow {
+  from { transform: translateX(-50%) translateY(0); }
+  to { transform: translateX(-50%) translateY(20px); }
+}
+
+/* Story Card */
+
+.story-box {
+  margin-top: 40px;
+  background: rgba(255,255,255,0.08);
+  padding: 25px;
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.4s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.final {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #3e1a13, #1a0a06);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
