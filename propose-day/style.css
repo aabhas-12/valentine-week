@@ -1,9 +1,12 @@
 body {
   margin: 0;
-  background: linear-gradient(to bottom, #ffe4ec, #ffd1dc);
+  background: radial-gradient(circle at top, #ffe6f0, #ffd1dc, #ffc2d1);
   font-family: Georgia, serif;
   text-align: center;
+  overflow: hidden;
+  min-height: 100vh;
 }
+
 
 .container {
   margin-top: 60px;
@@ -60,4 +63,31 @@ body {
 
 .hidden {
   display: none;
+}
+.heart {
+  position: fixed;
+  bottom: -30px;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-110vh);
+  }
+}
+.ring-box {
+  font-size: 80px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 5px #ff99c8); }
+  to { filter: drop-shadow(0 0 20px #ff4d6d); }
 }

@@ -67,4 +67,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const y = Math.random() * 200 - 100;
     maybeBtn.style.transform = `translate(${x}px, ${y}px)`;
   });
+
+  // Floating hearts
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+    heart.style.fontSize = 14 + Math.random() * 20 + "px";
+    document.body.appendChild(heart);
+  }
+  // Floating hearts
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 6 + Math.random() * 6 + "s";
+    heart.style.fontSize = 14 + Math.random() * 20 + "px";
+    document.body.appendChild(heart);
+  }
 });
