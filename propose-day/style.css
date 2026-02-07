@@ -3,56 +3,85 @@ body {
   background: radial-gradient(circle at top, #ffe6f0, #ffd1dc, #ffc2d1);
   font-family: Georgia, serif;
   text-align: center;
-  overflow: hidden;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden; /* only hide sideways scroll */
 }
 
-
+/* Main container */
 .container {
   margin-top: 60px;
+  position: relative;
+  z-index: 5;
 }
 
+/* Ring */
 .ring-box {
   font-size: 80px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  animation: glow 2s infinite alternate;
 }
 
 .ring-box:hover {
   transform: scale(1.2);
 }
 
-.gallery img {
-  width: 300px;
-  border-radius: 20px;
-  margin-top: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+@keyframes glow {
+  from { filter: drop-shadow(0 0 5px #ff99c8); }
+  to { filter: drop-shadow(0 0 20px #ff4d6d); }
 }
+
+/* Gallery Section */
 .gallery {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   z-index: 5;
 }
 
-.arrow {
+.gallery img {
+  width: 320px;
+  border-radius: 20px;
   margin-top: 20px;
-  padding: 12px 25px;
-  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* Caption */
+#caption {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #800020;
+}
+
+/* Arrow Button */
+.arrow {
+  margin-top: 25px;
+  padding: 12px 30px;
+  border-radius: 40px;
   border: none;
   background: #ff4d6d;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-  position: relative;
+  transition: transform 0.2s ease, background 0.2s ease;
   z-index: 10;
 }
 
 .arrow:hover {
   transform: scale(1.1);
+  background: #e63e5c;
 }
 
-
+/* Proposal Section */
 .proposal h2 {
   margin-top: 30px;
 }
@@ -75,34 +104,22 @@ body {
   background: #aaa;
 }
 
+/* Hidden */
 .hidden {
   display: none;
 }
+
+/* Floating Hearts */
 .heart {
   position: fixed;
   bottom: -30px;
   opacity: 0.7;
   pointer-events: none;
   animation: floatUp linear infinite;
-  z-index: 0;   /* 👈 important */
+  z-index: 0;
 }
 
 @keyframes floatUp {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-110vh);
-  }
-}
-.ring-box {
-  font-size: 80px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-  from { filter: drop-shadow(0 0 5px #ff99c8); }
-  to { filter: drop-shadow(0 0 20px #ff4d6d); }
+  from { transform: translateY(0); }
+  to { transform: translateY(-110vh); }
 }
