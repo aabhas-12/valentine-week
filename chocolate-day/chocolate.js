@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const finalMessage = document.getElementById("final-message");
 
   const messages = [
-    "The first time you smiled at me… everything melted. 🍫",
-    "Every small moment with you tastes sweeter than chocolate.",
+    "Every time I hear your voice and see your smile, I melt like butter under the warmth of your love.. 🍫",
+    "Every small moment with you tastes sweeter than any chocolate in this universe.",
     "Even silence with you feels rich and warm.",
     "Loving you is my favorite sweetness.",
   ];
