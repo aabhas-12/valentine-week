@@ -10,23 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
     "Loving you is my favorite sweetness.",
   ];
 
-  let clickedCount = 0;
-  let clickedTiers = new Set();
+  const tierPositions = [
+    40, // tier 1 top
+    120, // tier 2
+    200, // tier 3
+    300, // tier 4
+  ];
+
+  let clicked = new Set();
 
   tiers.forEach((tier) => {
     tier.addEventListener("click", function () {
-      const index = tier.dataset.index;
-
-      if (!clickedTiers.has(index)) {
-        clickedTiers.add(index);
-        clickedCount++;
-      }
+      const index = parseInt(tier.dataset.index);
 
       messageBox.innerText = messages[index];
+      messageBox.style.top = tierPositions[index] + "px";
 
-      if (clickedCount === messages.length) {
+      clicked.add(index);
+
+      if (clicked.size === messages.length) {
         finalMessage.classList.remove("hidden");
-
         setTimeout(() => {
           finalMessage.classList.add("show");
         }, 100);
