@@ -68,3 +68,47 @@ h1 {
   50% { opacity: 1; }
   100% { opacity: 0.6; }
 }
+.fountain-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 80px;
+}
+
+/* Message box */
+.tier-message {
+  width: 300px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #f5e6d3;
+  text-align: left;
+  transition: opacity 0.4s ease;
+}
+
+/* Tiers */
+.tier {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.tier:hover {
+  transform: scale(1.05);
+}
+
+/* Final message */
+.final-message {
+  margin-top: 80px;
+  text-align: center;
+  font-size: 22px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.final-message.show {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,49 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tiers = document.querySelectorAll(".tier");
-  const storyBox = document.getElementById("story-box");
-  const storyTitle = document.getElementById("story-title");
-  const storyText = document.getElementById("story-text");
+  const messageBox = document.getElementById("tier-message");
   const finalMessage = document.getElementById("final-message");
 
-  const stories = [
-    {
-      title: "The First Sweet Moment 🍫",
-      text: "The first time we shared chocolate… I realised you were sweeter.",
-    },
-    {
-      title: "That Chocolate Date ❤️",
-      text: "I don’t remember the taste of chocolate. I remember your smile.",
-    },
-    {
-      title: "You Melt Me 😌",
-      text: "Chocolate melts in warmth. I melt when you look at me.",
-    },
-    {
-      title: "Forever Sweet 🍫",
-      text: "Even if everything melts… my love for you won’t.",
-    },
+  const messages = [
+    "The first time you smiled at me… everything melted. 🍫",
+    "Every small moment with you tastes sweeter than chocolate.",
+    "Even silence with you feels rich and warm.",
+    "Loving you is my favorite sweetness.",
   ];
 
-  let unlocked = 0;
+  let clickedCount = 0;
+  let clickedTiers = new Set();
 
   tiers.forEach((tier) => {
     tier.addEventListener("click", function () {
-      const id = tier.dataset.id;
+      const index = tier.dataset.index;
 
-      storyTitle.innerText = stories[id].title;
-      storyText.innerText = stories[id].text;
+      if (!clickedTiers.has(index)) {
+        clickedTiers.add(index);
+        clickedCount++;
+      }
 
-      storyBox.classList.remove("hidden");
+      messageBox.innerText = messages[index];
 
-      tier.style.opacity = "0.5";
-      tier.style.pointerEvents = "none";
+      if (clickedCount === messages.length) {
+        finalMessage.classList.remove("hidden");
 
-      unlocked++;
-
-      if (unlocked === stories.length) {
         setTimeout(() => {
-          finalMessage.classList.remove("hidden");
-        }, 1200);
+          finalMessage.classList.add("show");
+        }, 100);
       }
     });
   });
