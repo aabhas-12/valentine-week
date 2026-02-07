@@ -21,6 +21,8 @@ body {
   cursor: pointer;
   transition: transform 0.3s ease;
   animation: glow 2s infinite alternate;
+  position: relative;
+  z-index: 10;
 }
 
 .ring-box:hover {
@@ -111,12 +113,15 @@ body {
 
 /* Floating Hearts */
 .heart {
+  .heart {
   position: fixed;
   bottom: -30px;
   opacity: 0.7;
   pointer-events: none;
   animation: floatUp linear infinite;
-  z-index: 0;
+  z-index: 0; /* stays behind everything */
+}
+
 }
 
 @keyframes floatUp {
