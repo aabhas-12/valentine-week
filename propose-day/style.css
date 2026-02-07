@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #ffe4ec, #ffd1dc);
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+.container {
+  margin-top: 60px;
+}
+
+.ring-box {
+  font-size: 80px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.ring-box:hover {
+  transform: scale(1.2);
+}
+
+.gallery img {
+  width: 300px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.arrow {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #ff6f91;
+  color: white;
+  cursor: pointer;
+}
+
+.proposal h2 {
+  margin-top: 30px;
+}
+
+.buttons button {
+  margin: 10px;
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#yes-btn {
+  background: #ff4d6d;
+  color: white;
+}
+
+#maybe-btn {
+  background: #aaa;
+}
+
+.hidden {
+  display: none;
+}
