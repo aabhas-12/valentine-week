@@ -68,3 +68,38 @@ h1 {
   50% { opacity: 1; }
   100% { opacity: 0.6; }
 }
+.choco-wrapper {
+  text-align: center;
+  padding-top: 40px;
+  position: relative;
+  z-index: 5;
+}
+
+.fountain-container {
+  position: relative;
+  margin-top: 40px;
+  height: 400px;
+}
+
+.fountain {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.tier-message {
+  position: absolute;
+  left: 60%;
+  top: 150px;
+  width: 250px;
+  color: #f5e6d3;
+  font-size: 18px;
+  text-align: left;
+  z-index: 5;
+}
+
+.final-message,
+.choco-ending {
+  margin-top: 50px;
+}

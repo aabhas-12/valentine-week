@@ -8,24 +8,24 @@
   </head>
 
   <body>
-    <h1 class="title">A Fountain of Sweet Memories 🍫</h1>
-    <p class="subtitle">Click each flowing tier to taste the sweetness</p>
+    <div class="choco-wrapper">
+      <h1 class="main-title">A Fountain of Sweet Memories 🍫</h1>
+      <p class="subtitle">Click each flowing tier to taste the sweetness</p>
 
-    <div class="tier-message hidden" id="tier-message"></div>
+      <div class="fountain-container">
+        <div class="fountain">
+          <div class="tier tier-1" data-index="0"></div>
+          <div class="tier tier-2" data-index="1"></div>
+          <div class="tier tier-3" data-index="2"></div>
+          <div class="tier tier-4" data-index="3"></div>
+          <div class="pole"></div>
+        </div>
 
-    <div class="final-message hidden" id="final-message">
-      <h2>Forever Sweet 🍫</h2>
-      <p>Even if everything melts… my love for you won’t.</p>
-    </div>
+        <div id="tier-message" class="tier-message hidden"></div>
+      </div>
 
-    <div class="choco-ending hidden" id="choco-ending">
-      <h1>Happy Chocolate Day 🍫</h1>
-      <p>
-        Some things melt.<br />
-        Some things fade.<br />
-        But what we have only grows sweeter with time.<br />
-        You are the only sweetness I ever need.
-      </p>
+      <div id="final-message" class="final-message hidden"></div>
+      <div id="choco-ending" class="choco-ending hidden"></div>
     </div>
 
     <div id="story-box" class="story-box hidden">
