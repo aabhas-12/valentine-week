@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const yesBtn = document.getElementById("yes-btn");
   const maybeBtn = document.getElementById("maybe-btn");
 
+  // 🔥 IMPORTANT — adjust path if images inside propose-day folder
   const photos = [
     {
       src: "p1.jpeg",
@@ -28,72 +29,86 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   let currentIndex = 0;
+  let ringOpened = false;
 
-  // Ring box click
-  ringBox.addEventListener("click", function () {
-    ringBox.innerText = "💍";
-    mainText.innerText = "Since you already survived Rose Day…";
+  // =========================
+  // 💍 RING CLICK
+  // =========================
+  if (ringBox) {
+    ringBox.addEventListener("click", function () {
+      if (ringOpened) return; // prevent multiple triggers
+      ringOpened = true;
 
-    setTimeout(function () {
-      gallery.classList.remove("hidden");
-      showPhoto();
-    }, 1000);
-  });
+      ringBox.innerText = "💍";
+      mainText.innerText = "Okay… now look carefully 😌";
 
+      setTimeout(function () {
+        gallery.classList.remove("hidden");
+        currentIndex = 0;
+        showPhoto();
+      }, 800);
+    });
+  }
+
+  // =========================
+  // 📸 SHOW PHOTO
+  // =========================
   function showPhoto() {
     photo.src = photos[currentIndex].src;
     caption.innerText = photos[currentIndex].text;
   }
 
-  nextBtn.addEventListener("click", function () {
-    currentIndex++;
+  // =========================
+  // ➡ NEXT BUTTON
+  // =========================
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function () {
+      currentIndex++;
 
-    if (currentIndex < photos.length) {
-      showPhoto();
-    } else {
-      gallery.classList.add("hidden");
-      proposal.classList.remove("hidden");
+      if (currentIndex < photos.length) {
+        showPhoto();
+      } else {
+        gallery.classList.add("hidden");
+        proposal.classList.remove("hidden");
+      }
+    });
+  }
+
+  // =========================
+  // ❤️ YES BUTTON
+  // =========================
+  if (yesBtn) {
+    yesBtn.addEventListener("click", function () {
+      proposal.classList.add("hidden");
+      finalMessage.classList.remove("hidden");
+    });
+  }
+
+  // =========================
+  // 😏 RUNNING MAYBE BUTTON
+  // =========================
+  if (maybeBtn) {
+    maybeBtn.addEventListener("mouseover", function () {
+      const x = Math.random() * 300 - 150;
+      const y = Math.random() * 200 - 100;
+      maybeBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  }
+
+  // =========================
+  // 💖 FLOATING HEARTS (CLEAN VERSION)
+  // =========================
+  function createHearts(count) {
+    for (let i = 0; i < count; i++) {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+      heart.style.fontSize = 14 + Math.random() * 18 + "px";
+      document.body.appendChild(heart);
     }
-  });
-
-  yesBtn.addEventListener("click", function () {
-    proposal.classList.add("hidden");
-    finalMessage.classList.remove("hidden");
-  });
-
-  // Playful running button
-  maybeBtn.addEventListener("mouseover", function () {
-    const x = Math.random() * 300 - 150;
-    const y = Math.random() * 200 - 100;
-    maybeBtn.style.transform = `translate(${x}px, ${y}px)`;
-  });
-
-  // Floating hearts
-  for (let i = 0; i < 15; i++) {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerText = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 5 + Math.random() * 5 + "s";
-    heart.style.fontSize = 14 + Math.random() * 20 + "px";
-    document.body.appendChild(heart);
   }
-  // Floating hearts
-  for (let i = 0; i < 20; i++) {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerText = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 6 + Math.random() * 6 + "s";
-    heart.style.fontSize = 14 + Math.random() * 20 + "px";
-    document.body.appendChild(heart);
-  }
-  for (let i = 0; i < 15; i++) {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerText = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 4 + Math.random() * 4 + "s";
-    document.body.appendChild(heart);
-  }
+
+  createHearts(25);
 });
