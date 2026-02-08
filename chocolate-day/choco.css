@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-h1 {
+.main-title {
   margin-top: 40px;
   font-size: 42px;
   letter-spacing: 1px;
@@ -30,7 +30,7 @@ h1 {
 
 .fountain-container {
   position: relative;
-  margin-top: 50px;
+  margin-top: 60px;
   height: 420px;
   display: flex;
   justify-content: center;
@@ -43,7 +43,7 @@ h1 {
   height: 360px;
 }
 
-/* Pole */
+/* Pole (behind tiers) */
 .pole {
   position: absolute;
   width: 16px;
@@ -52,9 +52,8 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
-  z-index: 1;   /* 👈 lower */
+  z-index: 1; /* behind tiers */
 }
-
 
 /* ===============================
    TIERS
@@ -68,15 +67,15 @@ h1 {
   border-radius: 50%;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 2;   /* 👈 higher */
+  z-index: 2; /* above pole */
 }
 
 .tier:hover {
-  transform: translateX(-50%) scale(1.06);
+  transform: translateX(-50%) scale(1.08);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-/* Tier sizes & stacking */
+/* Tier sizes */
 .tier-1 {
   width: 80px;
   height: 30px;
@@ -102,35 +101,46 @@ h1 {
 }
 
 /* ===============================
-   TIER MESSAGE
+   MESSAGE BOX (next to fountain)
 =================================*/
 
 .tier-message {
   position: absolute;
-  left: calc(50% + 160px);
-  top: 160px;
-  width: 260px;
+  left: calc(50% + 170px);
+  top: 120px;
+  width: 280px;
   text-align: left;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #f8e8d8;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(10px);
 }
 
 .tier-message.show {
   opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image inside message */
+.tier-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* ===============================
-   FINAL MESSAGE
+   FINAL SECTION
 =================================*/
 
 .final-section {
-  margin-top: 60px;
-  padding: 40px 20px;
+  margin-top: 80px;
+  padding: 50px 20px;
   background: linear-gradient(to bottom, #2a140e, #1a0c08);
   border-top: 2px solid rgba(255, 215, 160, 0.3);
+  animation: fadeIn 0.8s ease forwards;
 }
 
 .final-section h2 {
@@ -140,13 +150,13 @@ h1 {
 
 .final-section p {
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
   max-width: 600px;
   margin: 0 auto;
 }
 
 /* ===============================
-   HIDDEN CLASS
+   UTILITIES
 =================================*/
 
 .hidden {
@@ -154,12 +164,8 @@ h1 {
 }
 
 /* ===============================
-   SMOOTH FADE IN
+   ANIMATIONS
 =================================*/
-
-.fade-in {
-  animation: fadeIn 0.6s ease forwards;
-}
 
 @keyframes fadeIn {
   from {
