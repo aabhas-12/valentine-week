@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const message = tier.getAttribute("data-message");
 
       // 🔥 IMPORTANT — match images with tiers
-      const imagePath = `choco${index + 1}.jpg`;
+      const imagePath = `choco${index + 1}.jpeg`;
       // change folder name if needed
 
       messageText.innerText = message;
