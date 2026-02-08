@@ -1,39 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tiers = document.querySelectorAll(".tier");
   const messageBox = document.getElementById("tier-message");
-  const finalMessage = document.getElementById("final-message");
-  const ending = document.getElementById("choco-ending");
+  const finalSection = document.getElementById("final-section");
 
-  const messages = [
-    "The first time you smiled at me… everything melted. 🍫",
-    "Every small moment with you tastes sweeter than chocolate.",
-    "Even silence with you feels rich and warm.",
-    "Loving you is my favorite sweetness.",
-  ];
-
-  const tierPositions = [40, 120, 200, 300];
-
-  let clicked = new Set();
+  let clickedCount = 0;
 
   tiers.forEach((tier) => {
     tier.addEventListener("click", function () {
-      const index = parseInt(tier.dataset.index);
+      // Show message beside fountain
+      const message = tier.getAttribute("data-message");
+      messageBox.innerText = message;
+      messageBox.classList.add("show");
 
-      messageBox.classList.remove("hidden");
-      messageBox.innerText = messages[index];
-      messageBox.style.top = tierPositions[index] + "px";
+      // Prevent double counting
+      if (!tier.classList.contains("clicked")) {
+        tier.classList.add("clicked");
+        clickedCount++;
+      }
 
-      clicked.add(index);
-
-      // When all 4 tiers clicked
-      if (clicked.size === messages.length) {
+      // If all 4 tiers clicked
+      if (clickedCount === tiers.length) {
         setTimeout(() => {
-          finalMessage.classList.remove("hidden");
+          finalSection.classList.remove("hidden");
         }, 800);
-
-        setTimeout(() => {
-          ending.classList.remove("hidden");
-        }, 1800);
       }
     });
   });
