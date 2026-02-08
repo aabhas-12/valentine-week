@@ -14,33 +14,41 @@
 
       <div class="fountain-container">
         <div class="fountain">
-          <div class="tier tier-1" data-index="0"></div>
-          <div class="tier tier-2" data-index="1"></div>
-          <div class="tier tier-3" data-index="2"></div>
-          <div class="tier tier-4" data-index="3"></div>
           <div class="pole"></div>
+
+          <div
+            class="tier tier-1"
+            data-message="The first time you smiled at me… everything melted. 🍫"
+          ></div>
+
+          <div
+            class="tier tier-2"
+            data-message="Even silence with you feels rich and warm. 🤎"
+          ></div>
+
+          <div
+            class="tier tier-3"
+            data-message="Every memory with you tastes sweeter. ✨"
+          ></div>
+
+          <div
+            class="tier tier-4"
+            data-message="Loving you is my favorite sweetness. 💕"
+          ></div>
         </div>
 
-        <div id="tier-message" class="tier-message hidden"></div>
+        <!-- Message appears beside fountain -->
+        <div id="tier-message" class="tier-message"></div>
       </div>
 
-      <div id="final-message" class="final-message hidden"></div>
-      <div id="choco-ending" class="choco-ending hidden"></div>
-    </div>
-
-    <div id="story-box" class="story-box hidden">
-      <h2 id="story-title"></h2>
-      <p id="story-text"></p>
-    </div>
-
-    <div id="final-message" class="final hidden">
-      <h2>Happy Chocolate Day 🍫</h2>
-      <p>
-        Some things melt.<br /><br />
-        Some things fade.<br /><br />
-        But what we have only grows sweeter with time.<br /><br />
-        You are the only sweetness I ever need.
-      </p>
+      <!-- Final section appears ONLY after all tiers clicked -->
+      <div id="final-section" class="final-section hidden">
+        <h2>Forever Sweet 🍫</h2>
+        <p>
+          Even if everything melts… my love for you won’t.<br /><br />
+          Happy Chocolate Day 🤎
+        </p>
+      </div>
     </div>
 
     <script src="chocolate.js"></script>
