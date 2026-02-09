@@ -1,59 +1,58 @@
 body {
   margin: 0;
-  font-family: "Georgia", serif;
-  background: radial-gradient(circle at top, #ffe6f2, #ffd6e8, #ffc2dc);
+  font-family: Georgia, serif;
+  background: linear-gradient(to bottom, #ffe6f2, #ffd6e8);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-/* Wrapper */
+/* Main wrapper */
 .teddy-wrapper {
-  padding: 40px;
   width: 100%;
   display: flex;
   justify-content: center;
+  padding: 40px 20px;
 }
 
 /* Card */
 .teddy-card {
   background: white;
   max-width: 750px;
+  width: 100%;
   padding: 50px 60px;
   border-radius: 30px;
-  box-shadow: 0 25px 60px rgba(255, 100, 150, 0.25);
+  box-shadow: 0 20px 60px rgba(255, 100, 150, 0.2);
   text-align: center;
-  animation: fadeIn 1s ease forwards;
-  position: relative;
+  animation: fadeIn 0.8s ease forwards;
 }
 
 /* Title */
 .teddy-title {
   font-size: 34px;
   color: #b30059;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
+  margin-bottom: 35px;
 }
 
-/* Text */
+/* Text styling */
 .teddy-text p {
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.9;
+  margin: 10px 0;
   color: #5a0033;
-  margin: 8px 0;
 }
 
-/* Final Highlight */
+/* Highlight final line */
 .highlight {
-  font-size: 20px;
+  margin-top: 25px;
   font-weight: bold;
+  font-size: 20px;
   color: #cc0066;
-  margin-top: 20px;
 }
 
-/* Soft Fade Animation */
+/* Fade animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -63,8 +62,4 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-@keyframes float {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-20px); }
 }
