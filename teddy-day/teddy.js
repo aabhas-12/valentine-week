@@ -59,15 +59,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  for (let i = 0; i < 12; i++) {
-    const teddy = document.createElement("div");
-    teddy.innerText = "🧸";
-    teddy.style.position = "fixed";
-    teddy.style.left = Math.random() * 100 + "vw";
-    teddy.style.top = Math.random() * 100 + "vh";
-    teddy.style.fontSize = "18px";
-    teddy.style.opacity = "0.3";
-    teddy.style.animation = "float 6s ease-in-out infinite alternate";
-    document.body.appendChild(teddy);
-  }
 });
