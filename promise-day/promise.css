@@ -4,25 +4,32 @@
 
 body {
   margin: 0;
-  font-family: "Georgia", serif;
-  background: linear-gradient(to bottom, #f6f2ea, #efe8dc);
+  font-family: Georgia, serif;
+  background: #f6f2ea;
+  color: #5a4a3f;
+}
+
+.promise-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.title {
   text-align: center;
-  color: #3a3a3a;
-  min-height: 100vh;
-}
-
-h1 {
-  margin-top: 60px;
-  font-size: 40px;
+  margin-bottom: 50px;
+  font-size: 32px;
   font-weight: 500;
-  letter-spacing: 1px;
 }
 
-.subtitle {
-  margin-top: 10px;
-  font-size: 18px;
-  opacity: 0.7;
+/* 2 Column Layout */
+.tree-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
 }
+
 
 /* Hotspot container */
 .hotspot {
@@ -85,15 +92,16 @@ h1 {
 
 .tree-wrapper {
   position: relative;
-  width: 380px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-/* Realistic tree image */
 .tree-img {
   width: 100%;
-  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15));
-  transition: filter 0.6s ease;
+  display: block;
 }
+
 
 /* Glow after 10th promise */
 .tree-wrapper.glow .tree-img {
@@ -110,21 +118,25 @@ h1 {
   height: 55px;
   border-radius: 50%;
   background: #3f6b3f;
-  border: 3px solid #d4a84f;
+  border: 3px solid #caa24f;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: 0.3s ease;
 }
+
 .leaf::after {
   content: "+";
   font-size: 22px;
-  color: #d4a84f;
+  color: #caa24f;
 }
+
 .leaf:hover {
-  background: rgba(90, 130, 90, 0.5);
   transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(202, 162, 79, 0.6);
 }
+
 
 .leaf.clicked {
   background: #4e7c4e;
@@ -202,20 +214,18 @@ h1 {
 }
 
 .promise-text {
-  max-width: 350px;
-  font-size: 20px;
+  background: white;
+  padding: 60px 50px;
+  border-radius: 25px;
+  font-size: 22px;
   line-height: 1.6;
-  color: #5a4a2f;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  text-align: left;
-  min-height: 140px;
+  min-height: 180px;
   display: flex;
   align-items: center;
-  transition: opacity 0.4s ease;
+  justify-content: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
+
 .fade-in {
   animation: fadeIn 0.8s ease forwards;
 }

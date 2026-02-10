@@ -1,19 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   const leaves = document.querySelectorAll(".hotspot");
-  const promiseText = document.getElementById("promise-text");
-  const finalMessage = document.getElementById("final-message");
 
-  const leaves = document.querySelectorAll(".hotspot");
+  const treeWrapper = document.querySelector(".tree-wrapper");
 
-  const centerX = 180; // horizontal center of tree image
-  const centerY = 160; // vertical center of tree crown
-  const radius = 110; // size of circle
+  const centerX = treeWrapper.offsetWidth / 2;
+  const centerY = 200; // vertical center of crown
+  const radius = 140;
 
   leaves.forEach((leaf, index) => {
     const angle = (index / leaves.length) * (2 * Math.PI);
 
-    const x = centerX + radius * Math.cos(angle);
-    const y = centerY + radius * Math.sin(angle);
+    const x = centerX + radius * Math.cos(angle) - 27;
+    const y = centerY + radius * Math.sin(angle) - 27;
 
     leaf.style.left = x + "px";
     leaf.style.top = y + "px";
