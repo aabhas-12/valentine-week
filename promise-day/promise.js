@@ -1,56 +1,59 @@
 document.addEventListener("DOMContentLoaded", function () {
   const leaves = document.querySelectorAll(".hotspot");
-
   const treeWrapper = document.querySelector(".tree-wrapper");
-
-  const centerX = treeWrapper.offsetWidth / 2;
-  const centerY = 200; // vertical center of crown
-  const radius = 140;
-
-  leaves.forEach((leaf, index) => {
-    const angle = (index / leaves.length) * (2 * Math.PI);
-
-    const x = centerX + radius * Math.cos(angle) - 27;
-    const y = centerY + radius * Math.sin(angle) - 27;
-
-    leaf.style.left = x + "px";
-    leaf.style.top = y + "px";
-  });
+  const promiseText = document.getElementById("promise-text");
+  const finalMessage = document.getElementById("final-message");
 
   const promises = [
     "I promise to protect your heart as gently as I hold my own.",
-    "I promise to listen — even when your silence speaks.",
-    "I promise to stay calm when storms try to shake us.",
-    "I promise to choose you — especially on hard days.",
-    "I promise to grow beside you, not ahead of you.",
-    "I promise to make your safe place feel safer.",
-    "I promise to fight for us, never against you.",
-    "I promise to celebrate your smallest victories.",
-    "I promise to wipe your tears before they fall.",
-    "I promise that my love will stay intentional, not accidental.",
+    "I promise to stay patient when life feels heavy.",
+    "I promise to celebrate your smallest wins.",
+    "I promise to choose us — even on difficult days.",
+    "I promise to listen when you speak… and when you don’t.",
+    "I promise to grow with you, not away from you.",
+    "I promise to never make you feel alone.",
+    "I promise to respect your dreams as much as mine.",
+    "I promise to stay soft with you.",
+    "I promise to love you intentionally, every single day.",
   ];
 
-  let clickedCount = 0;
+  let clicked = new Set();
+
+  function positionLeaves() {
+    const rect = treeWrapper.getBoundingClientRect();
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2 - 40;
+    const radius = 160;
+
+    leaves.forEach((leaf, index) => {
+      const angle = (index / leaves.length) * (2 * Math.PI);
+
+      const x = centerX + radius * Math.cos(angle) - 27;
+      const y = centerY + radius * Math.sin(angle) - 27;
+
+      leaf.style.left = x + "px";
+      leaf.style.top = y + "px";
+    });
+  }
+
+  positionLeaves();
+  window.addEventListener("resize", positionLeaves);
 
   leaves.forEach((leaf) => {
     leaf.addEventListener("click", function () {
       const index = parseInt(this.dataset.index);
 
-      // Show promise
-      promiseText.innerText = promises[index];
+      promiseText.innerHTML = promises[index];
+      promiseText.classList.add("fade-in");
 
-      // Prevent double count
-      if (!this.classList.contains("clicked")) {
-        this.classList.add("clicked");
-        clickedCount++;
-      }
+      clicked.add(index);
 
-      // When all 10 clicked
-      if (clickedCount === 10) {
-        setTimeout(() => {
-          finalMessage.classList.remove("hidden");
-          finalMessage.classList.add("fade-in");
-        }, 600);
+      this.style.background = "#caa24f";
+      this.style.color = "white";
+
+      if (clicked.size === promises.length) {
+        finalMessage.classList.remove("hidden");
       }
     });
   });
