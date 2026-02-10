@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: radial-gradient(circle at top, #f6f1ea, #e9e1d6);
+  text-align: center;
+  min-height: 100vh;
+  color: #3a2f2f;
+}
+
+.title {
+  margin-top: 60px;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+.tree-container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.tree {
+  position: relative;
+  width: 300px;
+  height: 400px;
+}
+
+/* Trunk */
+.trunk {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 30px;
+  height: 180px;
+  background: #6b4f3a;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+
+/* Leaves */
+.leaf {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #7fa97f;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.leaf:hover {
+  transform: scale(1.1);
+}
+
+/* Leaf positions */
+.leaf:nth-child(2) { top: 40px; left: 110px; }
+.leaf:nth-child(3) { top: 80px; left: 60px; }
+.leaf:nth-child(4) { top: 80px; right: 60px; }
+.leaf:nth-child(5) { top: 130px; left: 30px; }
+.leaf:nth-child(6) { top: 130px; right: 30px; }
+.leaf:nth-child(7) { top: 180px; left: 70px; }
+.leaf:nth-child(8) { top: 180px; right: 70px; }
+.leaf:nth-child(9) { top: 220px; left: 120px; }
+.leaf:nth-child(10) { top: 220px; right: 120px; }
+.leaf:nth-child(11) { top: 260px; left: 140px; }
+
+/* Clicked leaf */
+.leaf.clicked {
+  background: #4e7c4e;
+}
+
+/* Promise text */
+.promise-text {
+  margin-top: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+  line-height: 1.7;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.promise-text.show {
+  opacity: 1;
+}
+
+/* Final */
+.final-message {
+  margin-top: 60px;
+  font-size: 18px;
+  line-height: 1.8;
+  animation: fadeIn 1s ease forwards;
+}
+
+.closing {
+  margin-top: 40px;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Glow effect after final leaf */
+.tree.glow {
+  box-shadow: 0 0 30px rgba(255, 215, 140, 0.6);
+  border-radius: 50%;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
