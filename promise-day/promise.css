@@ -85,7 +85,6 @@ h1 {
 
 .tree-wrapper {
   position: relative;
-  width: 380px;
 }
 
 /* Realistic tree image */
@@ -106,14 +105,21 @@ h1 {
 
 .leaf {
   position: absolute;
-  width: 34px;
-  height: 34px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  background: rgba(90, 130, 90, 0.25);
+  background: #3f6b3f;
+  border: 3px solid #d4a84f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
-
+.leaf::after {
+  content: "+";
+  font-size: 22px;
+  color: #d4a84f;
+}
 .leaf:hover {
   background: rgba(90, 130, 90, 0.5);
   transform: scale(1.1);

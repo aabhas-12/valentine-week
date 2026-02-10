@@ -3,6 +3,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const promiseText = document.getElementById("promise-text");
   const finalMessage = document.getElementById("final-message");
 
+  const leaves = document.querySelectorAll(".hotspot");
+
+  const centerX = 180; // horizontal center of tree image
+  const centerY = 160; // vertical center of tree crown
+  const radius = 110; // size of circle
+
+  leaves.forEach((leaf, index) => {
+    const angle = (index / leaves.length) * (2 * Math.PI);
+
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + radius * Math.sin(angle);
+
+    leaf.style.left = x + "px";
+    leaf.style.top = y + "px";
+  });
+
   const promises = [
     "I promise to protect your heart as gently as I hold my own.",
     "I promise to listen — even when your silence speaks.",
