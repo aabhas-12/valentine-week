@@ -1,42 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const promises = [
-    "I promise to choose you — not once, but every single day.",
-    "I promise to be your calm when everything feels overwhelming.",
-    "I promise to listen — even to the things you don’t say.",
-    "I promise to grow with you, never away from you.",
-    "I promise that my effort will never fade just because time passes.",
-    "I promise to protect your heart as gently as I hold my own.",
-    "I promise honesty — even when it is difficult.",
-    "I promise to stand beside you — not ahead, not behind.",
-    "I promise that loving you will never become routine. It will remain intentional.",
-    "I promise that the version of me you fell in love with will never disappear. I will protect him. For you.",
-  ];
-
-  const leaves = document.querySelectorAll(".leaf");
+  const leaves = document.querySelectorAll(".hotspot");
   const promiseText = document.getElementById("promise-text");
   const finalMessage = document.getElementById("final-message");
-  const tree = document.querySelector(".tree");
+
+  const promises = [
+    "I promise to protect your heart as gently as I hold my own.",
+    "I promise to listen — even when your silence speaks.",
+    "I promise to stay calm when storms try to shake us.",
+    "I promise to choose you — especially on hard days.",
+    "I promise to grow beside you, not ahead of you.",
+    "I promise to make your safe place feel safer.",
+    "I promise to fight for us, never against you.",
+    "I promise to celebrate your smallest victories.",
+    "I promise to wipe your tears before they fall.",
+    "I promise that my love will stay intentional, not accidental.",
+  ];
 
   let clickedCount = 0;
 
   leaves.forEach((leaf) => {
     leaf.addEventListener("click", function () {
-      const index = leaf.getAttribute("data-index");
+      const index = parseInt(this.dataset.index);
 
+      // Show promise
       promiseText.innerText = promises[index];
-      promiseText.classList.add("show");
 
-      if (!leaf.classList.contains("clicked")) {
-        leaf.classList.add("clicked");
+      // Prevent double count
+      if (!this.classList.contains("clicked")) {
+        this.classList.add("clicked");
         clickedCount++;
       }
 
+      // When all 10 clicked
       if (clickedCount === 10) {
-        tree.classList.add("glow");
-
         setTimeout(() => {
           finalMessage.classList.remove("hidden");
-        }, 800);
+          finalMessage.classList.add("fade-in");
+        }, 600);
       }
     });
   });
