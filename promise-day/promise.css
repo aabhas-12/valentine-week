@@ -85,6 +85,7 @@ h1 {
 
 .tree-wrapper {
   position: relative;
+  width: 380px;
 }
 
 /* Realistic tree image */
