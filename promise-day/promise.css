@@ -17,84 +17,37 @@ body {
 
 .title {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   font-size: 32px;
   font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
-/* 2 Column Layout */
-.tree-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-}
+/* ===============================
+   2 COLUMN LAYOUT
+=================================*/
 
-
-/* Hotspot container */
-.hotspot {
-  position: absolute;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  border: 2px solid rgba(212, 175, 55, 0.6);
+.promise-layout {
   display: flex;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(4px);
-  z-index: 5;
+  align-items: center;
+  gap: 100px;
+  flex-wrap: wrap;
 }
-
-/* Plus sign inside */
-.hotspot::after {
-  content: "+";
-  font-size: 20px;
-  font-weight: 600;
-  color: #b8860b;
-  transition: transform 0.3s ease;
-}
-
-/* Hover effect */
-.hotspot:hover {
-  transform: scale(1.15);
-  background: #fff;
-  box-shadow: 0 0 15px rgba(255, 215, 160, 0.6);
-}
-
-.hotspot:hover::after {
-  transform: rotate(90deg);
-}
-
-/* When clicked */
-.hotspot.active {
-  background: #d4af37;
-  border-color: #d4af37;
-}
-
-.hotspot.active::after {
-  content: "✓";
-  color: white;
-}
-
 
 /* ===============================
    TREE SECTION
 =================================*/
 
 .tree-container {
+  flex: 0 0 520px;
   display: flex;
   justify-content: center;
-  margin-top: 60px;
 }
 
 .tree-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+  width: 520px;
 }
 
 .tree-img {
@@ -102,20 +55,20 @@ body {
   display: block;
 }
 
-
 /* Glow after 10th promise */
 .tree-wrapper.glow .tree-img {
-  filter: drop-shadow(0 0 25px rgba(200, 180, 120, 0.6));
+  filter: drop-shadow(0 0 30px rgba(200, 180, 120, 0.7));
+  transition: 0.6s ease;
 }
 
 /* ===============================
-   CLICKABLE LEAVES
+   HOTSPOT LEAVES (CIRCULAR)
 =================================*/
 
 .leaf {
-   position: absolute;
-  width: 55px;
-  height: 55px;
+  position: absolute;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: #3f6b3f;
   border: 3px solid #caa24f;
@@ -123,76 +76,122 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
+/* + Sign */
 .leaf::after {
   content: "+";
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: 600;
   color: #caa24f;
+  transition: transform 0.3s ease;
 }
 
+/* Hover */
 .leaf:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(202, 162, 79, 0.6);
+  box-shadow: 0 0 18px rgba(202, 162, 79, 0.6);
 }
 
+.leaf:hover::after {
+  transform: rotate(90deg);
+}
 
+/* Clicked state */
 .leaf.clicked {
   background: #4e7c4e;
-  box-shadow: 0 0 10px rgba(78, 124, 78, 0.6);
+  border-color: #d4af37;
+}
+
+.leaf.clicked::after {
+  content: "✓";
+  color: white;
 }
 
 /* ===============================
-   PROMISE MESSAGE BOX
+   CIRCULAR POSITIONING
 =================================*/
 
-.promise-box {
-  margin-top: 50px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px;
-  font-size: 18px;
-  line-height: 1.7;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transform: translateY(10px);
+/* Center reference approx canopy center */
+.leaf:nth-child(2)  { top: 60px;  left: 235px; }   /* top */
+.leaf:nth-child(3)  { top: 95px;  left: 345px; }
+.leaf:nth-child(4)  { top: 170px; left: 390px; }
+.leaf:nth-child(5)  { top: 250px; left: 345px; }
+.leaf:nth-child(6)  { top: 300px; left: 235px; }
+.leaf:nth-child(7)  { top: 250px; left: 120px; }
+.leaf:nth-child(8)  { top: 170px; left: 75px; }
+.leaf:nth-child(9)  { top: 95px;  left: 120px; }
+.leaf:nth-child(10) { top: 200px; left: 235px; }
+.leaf:nth-child(11) { top: 150px; left: 235px; }
+
+/* ===============================
+   PROMISE PANEL (RIGHT SIDE)
+=================================*/
+
+.promise-panel {
+  flex: 0 0 500px;
 }
 
-.promise-box.show {
-  opacity: 1;
-  transform: translateY(0);
+.promise-text {
+  background: white;
+  padding: 60px 50px;
+  border-radius: 25px;
+  font-size: 22px;
+  line-height: 1.6;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transition: 0.4s ease;
+}
+
+/* Fade animation */
+.fade-in {
+  animation: fadeIn 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===============================
-   FINAL SECTION
+   FINAL MESSAGE SECTION
 =================================*/
 
-.final-section {
-  margin-top: 70px;
+.final-message {
+  margin-top: 80px;
+  text-align: center;
   padding: 60px 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0,0,0,0.08);
   opacity: 0;
   transition: opacity 0.8s ease;
 }
 
-.final-section.show {
+.final-message.show {
   opacity: 1;
 }
 
-.final-section h2 {
-  font-size: 34px;
-  margin-bottom: 20px;
+.highlight {
+  font-size: 26px;
+  margin-bottom: 30px;
+  font-weight: 500;
 }
 
-.final-section p {
+.closing p {
   font-size: 18px;
   line-height: 1.8;
-  max-width: 650px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -202,41 +201,4 @@ body {
 
 .hidden {
   display: none;
-}
-
-.promise-layout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
-  margin-top: 50px;
-  flex-wrap: wrap;
-}
-
-.promise-text {
-  background: white;
-  padding: 60px 50px;
-  border-radius: 25px;
-  font-size: 22px;
-  line-height: 1.6;
-  min-height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-}
-
-.fade-in {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
