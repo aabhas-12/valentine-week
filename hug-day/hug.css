@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(to bottom, #fff4f2, #ffe8e4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #6b4c4c;
+}
+
+.hug-wrapper {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.scene {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.person {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: 200px;
+  background: #d9a7a7;
+  border-radius: 60px 60px 20px 20px;
+  transition: all 1s ease;
+}
+
+.left {
+  left: 20px;
+}
+
+.right {
+  right: 20px;
+}
+
+/* When hugging */
+.scene.hug .left {
+  left: 140px;
+}
+
+.scene.hug .right {
+  right: 140px;
+}
+
+.instruction {
+  margin-top: 20px;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.final-message {
+  margin-top: 40px;
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.final-message.show {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
