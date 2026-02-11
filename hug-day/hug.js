@@ -6,11 +6,12 @@ let hugged = false;
 scene.addEventListener("click", () => {
   if (!hugged) {
     scene.classList.add("hug");
+
     finalMessage.classList.remove("hidden");
 
     setTimeout(() => {
       finalMessage.classList.add("show");
-    }, 800);
+    }, 1000);
 
     hugged = true;
   }

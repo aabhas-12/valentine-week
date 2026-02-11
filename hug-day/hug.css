@@ -1,7 +1,8 @@
 body {
   margin: 0;
   font-family: Georgia, serif;
-  background: linear-gradient(to bottom, #fff4f2, #ffe8e4);
+  background: radial-gradient(circle at center, #ffe6dc, #ffcfc0, #f7b7a3);
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,64 +12,77 @@ body {
 
 .hug-wrapper {
   text-align: center;
+  position: relative;
 }
 
 .title {
-  margin-bottom: 40px;
   font-size: 32px;
-  font-weight: 500;
+  margin-bottom: 40px;
 }
 
+/* Scene */
 .scene {
   position: relative;
-  width: 400px;
-  height: 250px;
+  width: 500px;
+  height: 300px;
   margin: 0 auto;
   cursor: pointer;
 }
 
-.person {
+/* Characters */
+.character {
   position: absolute;
   bottom: 0;
-  width: 120px;
-  height: 200px;
-  background: #d9a7a7;
-  border-radius: 60px 60px 20px 20px;
-  transition: all 1s ease;
+  width: 180px;
+  transition: all 1.5s ease;
 }
 
-.left {
+.boy {
   left: 20px;
 }
 
-.right {
+.girl {
   right: 20px;
 }
 
-/* When hugging */
-.scene.hug .left {
-  left: 140px;
+/* Glow heart */
+.glow-heart {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 100, 130, 0.6), transparent 70%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: all 1.5s ease;
 }
 
-.scene.hug .right {
-  right: 140px;
+/* Hug state */
+.scene.hug .boy {
+  left: 160px;
 }
 
-.instruction {
-  margin-top: 20px;
-  font-size: 18px;
-  opacity: 0.8;
+.scene.hug .girl {
+  right: 160px;
 }
 
+.scene.hug .glow-heart {
+  transform: translate(-50%, -50%) scale(1.2);
+  opacity: 1;
+}
+
+/* Message */
 .final-message {
   margin-top: 40px;
   font-size: 20px;
-  line-height: 1.6;
-  max-width: 500px;
+  line-height: 1.7;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 1.2s ease;
 }
 
 .final-message.show {
