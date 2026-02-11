@@ -2,34 +2,62 @@ body {
   margin: 0;
   font-family: Georgia, serif;
   background: radial-gradient(circle at center, #ffe6dc, #ffcfc0, #f7b7a3);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #6b4c4c;
   min-height: 100vh;
-  overflow-x: hidden;   /* only hide sideways scroll */
-  overflow-y: auto;     /* allow vertical scroll */
-}
-.container {
-  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
+/* Wrapper */
 .hug-wrapper {
   text-align: center;
-  position: relative;
+  padding: 60px 20px;
 }
 
 .title {
   font-size: 32px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+}
+
+/* Main Layout */
+.hug-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+/* Side Photos */
+.side-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.side-img {
+  width: 200px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transition: all 0.4s ease;
+  opacity: 0.85;
+}
+
+.side-img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Center Content */
+.center-content {
+  max-width: 500px;
 }
 
 /* Scene */
 .scene {
   position: relative;
   width: 500px;
-  height: 300px;
+  height: 320px;
   margin: 0 auto;
   cursor: pointer;
 }
@@ -38,23 +66,23 @@ body {
 .character {
   position: absolute;
   bottom: 0;
-  width: 180px;
+  width: 200px;
   transition: all 1.5s ease;
 }
 
 .boy {
-  left: 20px;
+  left: 0;
 }
 
 .girl {
-  right: 20px;
+  right: 0;
 }
 
-/* Glow heart */
+/* Glow Heart */
 .glow-heart {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   background: radial-gradient(circle, rgba(255, 100, 130, 0.6), transparent 70%);
   border-radius: 50%;
   top: 50%;
@@ -64,13 +92,13 @@ body {
   transition: all 1.5s ease;
 }
 
-/* Hug state */
+/* Hug State */
 .scene.hug .boy {
-  left: 160px;
+  left: 150px;
 }
 
 .scene.hug .girl {
-  right: 160px;
+  right: 150px;
 }
 
 .scene.hug .glow-heart {
@@ -78,11 +106,18 @@ body {
   opacity: 1;
 }
 
-/* Message */
+/* Instruction */
+.instruction {
+  margin-top: 20px;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* Final Message */
 .final-message {
   margin-top: 40px;
   font-size: 20px;
-  line-height: 1.7;
+  line-height: 1.8;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
