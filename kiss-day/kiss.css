@@ -121,8 +121,7 @@ input[type="range"] {
 .side-img {
   width: 140px;
   border-radius: 18px;
-  opacity: 0.75;
-  filter: blur(1px);
+  opacity: 0.9;
   box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
