@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: radial-gradient(circle at center, #2b0f1a, #12060c);
+  color: #f2d6de;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kiss-wrapper {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 700px;
+}
+
+/* Titles */
+.title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  opacity: 0.7;
+  margin-bottom: 50px;
+}
+
+/* Scene */
+.scene {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  margin-bottom: 40px;
+}
+
+/* Blurred shapes */
+.blur-shape {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255, 160, 180, 0.3);
+  filter: blur(25px);
+  transition: all 1.2s ease;
+}
+
+.blur-shape.left {
+  left: 0;
+  top: 30px;
+}
+
+.blur-shape.right {
+  right: 0;
+  top: 30px;
+}
+
+/* Heart glow */
+.glow-heart {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(255, 90, 130, 0.6), transparent 70%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.4);
+  opacity: 0;
+  transition: all 1.4s ease;
+}
+
+/* Kiss emoji */
+.kiss-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 40px;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  transition: all 1.4s ease;
+}
+
+/* Slider */
+.slider-box {
+  margin-top: 20px;
+}
+
+.slider-text {
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+input[type="range"] {
+  width: 80%;
+  accent-color: #ff5c8a;
+}
+
+/* Final Message */
+.final-message {
+  margin-top: 50px;
+  font-size: 20px;
+  line-height: 1.8;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.final-message.show {
+  opacity: 1;
+}
